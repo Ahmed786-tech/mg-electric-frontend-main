@@ -1,10 +1,14 @@
+import img1 from "@/assets/images/Img01.png";
+import img2 from "@/assets/images/Img02.png";
+import img3 from "@/assets/images/Img03.png";
+import { img } from "framer-motion/client";
+
 export const teamData = [
   {
     id: 1,
     name: "Mark Dearlove",
     position: "Mechanical Engineering",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/51b5a421b8ff4b8e94ef9b0be6355dd5/1fae7736c5fc2170531c522666295a7322c5365f22e8414f7090b18384efa57f?apiKey=51b5a421b8ff4b8e94ef9b0be6355dd5&",
+    image: img1,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
     socialIcons: [
@@ -29,8 +33,7 @@ export const teamData = [
     id: 2,
     name: "Jhone Doe",
     position: "Mechanical Engineering",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/51b5a421b8ff4b8e94ef9b0be6355dd5/d997b525130f8732216a3007c92272bfcff0e162fdc25a96c6d4de90f44927b0?apiKey=51b5a421b8ff4b8e94ef9b0be6355dd5&",
+    image: img2,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
     socialIcons: [
@@ -55,8 +58,7 @@ export const teamData = [
     id: 3,
     name: "Jhone Doe",
     position: "Mechanical Engineering",
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/51b5a421b8ff4b8e94ef9b0be6355dd5/57db0719af316d153767f84fb79f1cf5aa0032f620657722341f6ca99a552e88?apiKey=51b5a421b8ff4b8e94ef9b0be6355dd5&",
+    image: img3,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
     socialIcons: [

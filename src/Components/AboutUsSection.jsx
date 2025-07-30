@@ -1,5 +1,4 @@
 import React from "react";
-import bg from "../assets/images/Bg5.png";
 
 export default function AboutUsSection({
   heading,
@@ -20,14 +19,7 @@ export default function AboutUsSection({
   Paragraph,
 }) {
   return (
-    <section
-      className="bg-cover bg-center text-white py-8 px-6"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
+    <section className="bg-cover bg-center text-white py-8 px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Content */}
         <div className="flex flex-col w-full lg:w-1/2">

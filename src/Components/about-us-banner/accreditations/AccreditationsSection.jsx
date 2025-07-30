@@ -38,7 +38,7 @@ const accreditations = [
 export function AccreditationsSection({ Background }) {
   return (
     <section
-      className="flex flex-col justify-center w-full pt-9 pb-16 "
+      className="flex flex-col justify-center w-full mt-8 pt-9 pb-16 "
       style={{
         backgroundImage: `url(${Background})`,
         backgroundRepeat: "no-repeat",

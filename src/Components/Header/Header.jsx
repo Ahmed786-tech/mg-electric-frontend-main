@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Logo from '../../assets/svgs/logo.svg';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import bg from '../../assets/images/Bg4.png';
+import React, { useState } from "react";
+import Logo from "../../assets/svgs/logo.svg";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import bg from "../../assets/images/isolation_Mode.png";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   const goToHome = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -88,7 +88,7 @@ const Header = () => {
             border-radius: 20px;
             background: #FFF;
             box-shadow: 0px 7px 4px 0px rgba(16, 89, 147, 0.70);
-            padding: 0.5rem 0;
+            padding: 1rem 0;
           }
           
           .dropdown-item {
@@ -274,11 +274,23 @@ const Header = () => {
           }
         `}
       </style>
-      <div className="bg-cover bg-center header-wrapper font-lato"
-      style={{ backgroundImage: `url(${bg})`,backgroundRepeat: 'no-repeat', backgroundSize: 'cover',backgroundPosition: 'center' }}>
+      <div
+        className=" header-wrapper font-lato"
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right",
+          backgroundSize: "contain",
+        }}
+      >
         <header className="header">
           <div className="logo-container">
-            <img onClick={goToHome} src={Logo} alt="Logo" className="logo w-[188px] h-[109px] cursor-pointer" />
+            <img
+              onClick={goToHome}
+              src={Logo}
+              alt="Logo"
+              className="logo w-[188px] h-[109px] cursor-pointer"
+            />
           </div>
 
           <div className="hamburger" onClick={toggleDrawer}>
@@ -290,26 +302,40 @@ const Header = () => {
           <nav className="nav">
             <ul className="nav-list">
               <li className="nav-item">
-                <Link to="/about" className="nav-link">About us</Link>
+                <Link to="/about" className="nav-link">
+                  About us
+                </Link>
               </li>
               <li
                 className="nav-item"
                 onMouseEnter={() => setIsDropdownOpen(true)}
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                <Link to="/services" className="nav-link">Our services</Link>
+                <Link to="/services" className="nav-link">
+                  Our services
+                </Link>
                 {isDropdownOpen && (
                   <ul className="dropdown z-50">
                     <li>
-                      <Link to="/services/electrical-installations" className="dropdown-item">Electrical Installations & Upgrades</Link>
+                      <Link
+                        to="/services/electrical-installations"
+                        className="dropdown-item"
+                      >
+                        Electrical Installations & Upgrades
+                      </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="/services/web" className="dropdown-item">Electrical Testing & Inspections</Link>
-                    </li>
+                    </li> */}
                     <li>
-                      <Link to="/services/emergency-lighting" className="dropdown-item">Emergency Lighting & Power Solutions</Link>
+                      <Link
+                        to="/services/emergency-lighting"
+                        className="dropdown-item"
+                      >
+                        Emergency Lighting & Power Solutions
+                      </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="/services/web" className="dropdown-item">Backup Power Systems</Link>
                     </li>
                     <li>
@@ -320,42 +346,55 @@ const Header = () => {
                     </li>
                     <li>
                       <Link to="/services/web" className="dropdown-item">Maintenance & Reactive Repairs</Link>
-                    </li>
+                    </li> */}
                   </ul>
                 )}
               </li>
               <li className="nav-item">
-                <Link to="/portfolio" className="nav-link">Recent Projects</Link>
+                <Link to="/portfolio" className="nav-link">
+                  Recent Projects
+                </Link>
               </li>
-                            <li className="nav-item">
-                <Link to="/about" className="nav-link">Meet the Team</Link>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link">
+                  Meet the Team
+                </Link>
               </li>
-                            <li className="nav-item">
-                <Link to="/contact" className="nav-link">Contact Us</Link>
+              <li className="nav-item">
+                <Link to="/contact" className="nav-link">
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </nav>
 
           <Link to="/contact">
             <button className="contact-button w-[187px] h-[61px]">
-              <span className="contact-button-text">
-                Contact Us
-              </span>
+              <span className="contact-button-text">Contact Us</span>
             </button>
           </Link>
-        </header >
-      </div >
+        </header>
+      </div>
 
-      <div className={`drawer-overlay ${isDrawerOpen ? 'open' : ''}`} onClick={toggleDrawer}></div>
-      <div className={`drawer ${isDrawerOpen ? 'open' : ''}`}>
-        <button className="drawer-close" onClick={toggleDrawer}>×</button>
+      <div
+        className={`drawer-overlay ${isDrawerOpen ? "open" : ""}`}
+        onClick={toggleDrawer}
+      ></div>
+      <div className={`drawer ${isDrawerOpen ? "open" : ""}`}>
+        <button className="drawer-close" onClick={toggleDrawer}>
+          ×
+        </button>
         <nav>
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={toggleDrawer}>About us</Link>
+              <Link to="/" className="nav-link" onClick={toggleDrawer}>
+                About us
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={toggleDrawer}>What we do</Link>
+              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
+                What we do
+              </Link>
             </li>
             <li
               className="nav-item"
@@ -363,51 +402,103 @@ const Header = () => {
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
               <div className="nav-link-with-arrow">
-                <Link to="/services" className="nav-link" onClick={toggleDrawer}>Our services</Link>
-                <span className={`arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+                <Link
+                  to="/services"
+                  className="nav-link"
+                  onClick={toggleDrawer}
+                >
+                  Our services
+                </Link>
+                <span className={`arrow ${isDropdownOpen ? "open" : ""}`}>
+                  ▼
+                </span>
               </div>
               {isDropdownOpen && (
                 <ul className="dropdown">
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Electrical Installations & Upgrades</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Electrical Installations & Upgrades
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Electrical Testing & Inspections</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Electrical Testing & Inspections
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Emergency Lighting & Power Solutions</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Emergency Lighting & Power Solutions
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Backup Power Systems</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Backup Power Systems
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Fire Alarms & Safety Systems</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Fire Alarms & Safety Systems
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Data Cabling & Networking</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Data Cabling & Networking
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/services/web" className="dropdown-item" onClick={toggleDrawer}>Maintenance & Reactive Repairs</Link>
+                    <Link
+                      to="/services/web"
+                      className="dropdown-item"
+                      onClick={toggleDrawer}
+                    >
+                      Maintenance & Reactive Repairs
+                    </Link>
                   </li>
                 </ul>
               )}
             </li>
             <li className="nav-item">
-              <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>Portfolio</Link>
+              <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>
+                Portfolio
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/blog" className="nav-link" onClick={toggleDrawer}>Blog</Link>
+              <Link to="/blog" className="nav-link" onClick={toggleDrawer}>
+                Blog
+              </Link>
             </li>
           </ul>
         </nav>
         <button className="contact-button">
-          <span className="contact-button-text">
-            Contact Us
-          </span>
+          <span className="contact-button-text">Contact Us</span>
         </button>
       </div>
     </>
   );
-}
+};
 
 export default Header;

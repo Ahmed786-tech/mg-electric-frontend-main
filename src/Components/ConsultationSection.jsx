@@ -3,7 +3,11 @@
 import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import CityScape from "../assets/images/Cityimg.png";
-import bg from "../assets/images/Bg3.png";
+import bg from "../assets/images/HomeHeroFrame.png";
+import LeftDots from "../assets/images/Leftdots.png";
+import RightDots from "../assets/images/RightDots.png";
+
+import IsolationMode from "../assets/images/Isolation_Mode_Left.png";
 
 export default function ConsultationSection() {
   const recaptchaRef = useRef(null);
@@ -19,16 +23,54 @@ export default function ConsultationSection() {
   };
 
   return (
-    <section
-      className="bg-cover bg-center w-full pt-20 md:pt-28 pb-16 md:pb-20 relative overflow-hidden"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <section className="bg-cover bg-center w-full pt-20 md:pt-28 pb-16 md:pb-20 relative z-10 overflow-hidden">
+      <div className=" absolute w-[70px] right-4 top-[370px] z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+      <div className=" absolute w-[70px] left-4 transform  -translate-y-1/4 z-10">
+        <img
+          src={LeftDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className="hidden md:block absolute left-0 transform mt-4 -translate-y-1/5 z-10">
+        <img
+          src={IsolationMode}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       {/* Left Image - Absolute */}
-      <div className="hidden md:block absolute top-0 left-0 w-1/2 h-full z-0">
+      <div className=" absolute top-0 left-0 w-1/2 h-full z-0">
+        <div
+          className="absolute hidden md:block top-0 left-0 w-full h-full z-[-1]"
+          style={{
+            backgroundImage: `url(${bg})`,
+            backgroundSize: "contain",
+            backgroundPosition: "top",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.2, // Adjust as needed
+          }}
+        ></div>
         <img
           src={CityScape}
           alt="Cityscape"
-          className="w-[687px] h-[714px] object-cover rounded-b-[50px] mt-[220px]"
+          className="w-[687px] h-[714px] object-cover rounded-b-[50px] mt-[222px] opacity-100"
         />
       </div>
 

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import TeamMemberCard from "./TeamMemberCard";
 import CarouselControls from "./CarouselControls";
 import { teamData } from "./teamData";
-import bg from "@/assets/images/Bg6.png";
+import bg from "@/assets/images/mainSquaresBg.png";
 
 function TeamCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -66,11 +66,18 @@ function TeamCarousel() {
   };
 
   return (
-    <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <section className="w-full  py-10 md:py-12">
       <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1350px]">
+        <div className=" absolute hidden md:block md:w-[700px] opacity-30  z-10">
+          <img
+            src={bg}
+            alt="Decorative oval"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",
+            }}
+          />
+        </div>
         <p className="font-normal text-[20px] text-[#01B8FF] mb-3 font-andika">
           Our Services
         </p>
@@ -88,7 +95,7 @@ function TeamCarousel() {
           </div>
 
           {/* Slider section */}
-          <div className="h-[600px] w-full flex items-center justify-center">
+          <div className="h-[600px]  flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction}>
               <div className="flex gap-4 justify-center px-2 sm:px-4 w-full">
                 {getVisibleSlides().map((slideIndex) => (
@@ -122,6 +129,9 @@ function TeamCarousel() {
               </div>
             </AnimatePresence>
           </div>
+          <button className=" border-2 text-[#01B8FF] border-[#01B8FF] rounded-lg py-3 px-20 font-medium mt-10">
+            View All Services
+          </button>
         </div>
       </div>
     </section>

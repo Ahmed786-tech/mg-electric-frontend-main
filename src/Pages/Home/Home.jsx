@@ -1,4 +1,3 @@
-import React from "react";
 import ConsultationSection from "../../Components/ConsultationSection";
 import AboutUsSection from "../../Components/AboutUsSection";
 import leftimg1 from "../../assets/images/Img13.png";
@@ -27,6 +26,14 @@ import OurGallery from "../../Components/OurGallery";
 import ContactForm from "../../Components/ContactForm";
 import MapSection from "../../Components/MapSection";
 import bg from "../../assets/images/Bg9.png";
+import bgDots from "../../assets/images/bgDots.png";
+import aboutRightVecotr from "../../assets/images/aboutRightVector.png";
+import leftVector from "../../assets/images/leftVector.png";
+
+import LeftDots from "../../assets/images/Leftdots.png";
+import isolation_Mode from "../../assets/images/isolation_Mode.png";
+import isolationMode2 from "../../assets/images/isolationVector2.png";
+import rightBgDots from "../../assets/images/rightSideDots.png";
 
 function Home() {
   const servicesList = [
@@ -90,6 +97,16 @@ function Home() {
   return (
     <div>
       <ConsultationSection />
+      <div className="hidden md:block absolute  left-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[370px] ">
+          <img src={bgDots} alt="Decorative oval" />
+        </div>
+      </div>
+      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[550px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
       <AboutUsSection
         titleTag="About Us"
         heading="We're your trusted partner"
@@ -111,8 +128,50 @@ function Home() {
         MarginBottom={"-mb-[50px]"}
         margintop2={"mt-8"}
       />
+      <div className=" absolute w-[70px] left-4 transform  -translate-y-1/4 z-10">
+        <img
+          src={LeftDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className=" absolute w-[250px] mt-[-50px] right-0 transform  -translate-y-1/2 z-10">
+        <img
+          src={isolation_Mode}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <AccreditationsSection />
       <ServicesCarousel />
+      <div className="hidden md:block absolute mt-[-100px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[540px] ">
+          <img src={leftVector} alt="Decorative oval" />
+        </div>
+      </div>
+      <div className=" absolute w-[200px] mt-[350px] left-0 transform  -translate-y-1/4 z-10">
+        <img
+          src={isolationMode2}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className="hidden md:block absolute  right-0 transform -translate-y-1/4 z-0 ">
+        <div className=" md:w-[370px] ">
+          <img src={rightBgDots} alt="Decorative oval" />
+        </div>
+      </div>
       <OurProcess />
       <WhyChooseUs
         titleTag="Why Choose Us"

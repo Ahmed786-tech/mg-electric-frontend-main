@@ -3,7 +3,6 @@ import Icon1 from "../assets/svgs/Icon23.svg";
 import Icon2 from "../assets/svgs/Icon24.svg";
 import Icon3 from "../assets/svgs/Icon25.svg";
 import Icon4 from "../assets/svgs/Icon26.svg";
-import bg from "../assets/images/Bg7.png";
 
 const steps = [
   {
@@ -34,14 +33,7 @@ const steps = [
 
 const OurProcess = () => {
   return (
-    <section
-      className="bg-cover bg-center text-white py-10 px-4 sm:px-6 md:px-10 lg:px-20"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
+    <section className="bg-cover bg-center text-white py-10 px-4 sm:px-6 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto text-center">
         {/* Heading */}
         <p className="text-[#01B8FF] text-[18px] sm:text-[20px] font-normal font-andika">
@@ -61,7 +53,11 @@ const OurProcess = () => {
               }`}
             >
               <div className="p-4 rounded-[20px] w-[100px] h-[100px] flex items-center justify-center mb-6 shadow-md bg-[linear-gradient(180deg,#01B8FF_0%,#3E99BC_100%)]">
-                <img src={step.icon} alt={step.title} className="w-[60px] h-[60px] md:w-[70px] md:h-[70px]" />
+                <img
+                  src={step.icon}
+                  alt={step.title}
+                  className="w-[60px] h-[60px] md:w-[70px] md:h-[70px]"
+                />
               </div>
               <h3 className="text-white font-bold text-[18px] sm:text-[20px] mb-2 font-andika">
                 {step.title}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import bg1 from "../../assets/images/IsolationMode.png";
+import bg1 from "/images/IsolationMode.png";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

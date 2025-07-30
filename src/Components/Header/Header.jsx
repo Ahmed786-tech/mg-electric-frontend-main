@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import bg1 from "/images/IsolationMode.png";
+import isolationMode from "/images/IsolationMode.png";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -277,7 +277,7 @@ const Header = () => {
       <div
         className=" header-wrapper font-lato"
         style={{
-          backgroundImage: `url(${bg1})`,
+          backgroundImage: `url(${isolationMode})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
           backgroundSize: "200px",

@@ -31,7 +31,7 @@ import aboutRightVecotr from "../../assets/images/aboutRightVector.png";
 import leftVector from "../../assets/images/leftVector.png";
 
 import LeftDots from "../../assets/images/Leftdots.png";
-import isolation_Mode from "../../assets/images/isolation_Mode.png";
+import isolation_Mode from "../../assets/images/isolationMode.png";
 import isolationMode2 from "../../assets/images/isolationVector2.png";
 import rightBgDots from "../../assets/images/rightSideDots.png";
 

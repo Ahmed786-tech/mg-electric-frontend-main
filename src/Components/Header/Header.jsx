@@ -280,7 +280,7 @@ const Header = () => {
           backgroundImage: `url(${bg1})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
-          backgroundSize: "contain",
+          backgroundSize: "200px",
         }}
       >
         <header className="header">

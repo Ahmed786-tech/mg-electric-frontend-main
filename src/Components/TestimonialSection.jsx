@@ -43,7 +43,7 @@ export default function Component() {
   };
 
   return (
-    <div className=" py-16 px-4 mt-20">
+    <div className=" py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <h4 className="text-[#01B8FF] font-normal text-xl text-center pb-2">
           Testimonials

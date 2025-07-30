@@ -31,7 +31,7 @@ const sectors = [
 export default function SectorsWeCover() {
   return (
     <section
-      className="px-4 text-white py-12"
+      className="px-4 text-white "
       style={{
         backgroundImage: `url(${bg})`,
         backgroundRepeat: "no-repeat",
@@ -44,14 +44,17 @@ export default function SectorsWeCover() {
         <div className="flex flex-col space-y-8 w-full lg:w-[405px]">
           {/* Heading & Description */}
           <div>
-            <p className="text-[#01B8FF] text-[20px] font-normal font-andika">Our Sectors</p>
+            <p className="text-[#01B8FF] text-[20px] font-normal font-andika">
+              Our Sectors
+            </p>
             <h2 className="text-[32px] sm:text-[36px] lg:text-[40px] font-bold mt-2 font-andika">
               Sectors We Cover
             </h2>
             <p className="text-white text-[16px] sm:text-[18px] font-medium mt-4 leading-relaxed">
-              We specialise in delivering tailored electrical solutions across the Healthcare,
-              Commercial, and Residential sectors. Our expertise ensures safe, efficient, and
-              compliant systems for each environment.
+              We specialise in delivering tailored electrical solutions across
+              the Healthcare, Commercial, and Residential sectors. Our expertise
+              ensures safe, efficient, and compliant systems for each
+              environment.
             </p>
           </div>
 

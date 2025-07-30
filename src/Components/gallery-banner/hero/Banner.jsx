@@ -3,20 +3,11 @@ import { ConsultationCard } from "./ConsultationCard";
 import { QuoteButton } from "./QuoteButton";
 import GalleryBannerBg from "../../../assets/images/gallery-banner.png";
 
-export function Banner({ Background }) {
+export function Banner() {
   return (
-    <section
-      className="flex items-center justify-center w-full pt-20 pb-[150px] px-4 sm:px-6 md:px-8"
-      style={{
-        backgroundImage: `url(${Background})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="flex items-center justify-center w-full pt-20 pb-[130px] px-4 sm:px-6 md:px-8 relative z-10">
       <div className="flex flex-col rounded-[20px] border border-[#01B8FF] bg-[rgba(0,32,60,0.95)] shadow-[0px_7px_4px_0px_rgba(16,89,147,0.70)] max-w-[1022px] w-full">
         <div className="flex relative flex-col justify-center px-4 sm:px-6 md:px-8 py-9 w-full min-h-[317px]">
-          
           {/* Optional background image overlay */}
           <img
             loading="lazy"
@@ -27,7 +18,6 @@ export function Banner({ Background }) {
 
           {/* Content */}
           <div className="relative flex flex-col lg:flex-row justify-between items-center gap-6 z-10">
-            
             {/* Left: Logo + Button */}
             <div className="flex flex-col text-lg font-medium leading-loose text-white w-full lg:w-[35%] min-w-[240px] items-center lg:items-start">
               <img
@@ -46,7 +36,6 @@ export function Banner({ Background }) {
               <ConsultationCard width="w-[589px]" height="h-[250px]" />
             </div>
           </div>
-
         </div>
       </div>
     </section>

@@ -1,21 +1,21 @@
-'use client';
-import LocationIcon from '@/assets/svgs/Icon32.svg';
-import Locationimg1 from '../assets/images/Img22.png';
-import Locationimg2 from '../assets/images/Img23.png';
-import Locationimg3 from '../assets/images/Img24.png';
-import bg from '../assets/images/bg2.png';
+"use client";
+import LocationIcon from "@/assets/svgs/Icon32.svg";
+import Locationimg1 from "../assets/images/Img22.png";
+import Locationimg2 from "../assets/images/Img23.png";
+import Locationimg3 from "../assets/images/Img24.png";
+import bg from "../assets/images/bg2.png";
 
 const areas = [
   {
-    name: 'Surrey',
+    name: "Surrey",
     image: Locationimg1,
   },
   {
-    name: 'London',
+    name: "London",
     image: Locationimg2,
   },
   {
-    name: 'Sussex',
+    name: "Sussex",
     image: Locationimg3,
   },
 ];
@@ -23,8 +23,8 @@ const areas = [
 export default function AreasWeCover() {
   return (
     <section
-      className="bg-cover bg-center py-16 px-4 md:px-20 text-white text-center"
-      style={{ backgroundImage: `url(${bg})` }}
+      className="bg-cover bg-center py-16 px-4 md:px-20 text-white text-center relative z-10"
+      style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}
     >
       {/* Heading */}
       <p className="text-[#01B8FF] text-[20px] font-normal mb-2 font-andika">
@@ -48,9 +48,13 @@ export default function AreasWeCover() {
             <div
               className="bg-[#001A33] text-white px-6 py-4 rounded-[10px] w-[290px] h-[85px] mt-[-24px] shadow-lg relative z-10 flex items-center justify-center gap-2 font-normal text-[30px] font-andika 
               sm:ml-[55px] ml-0"
-              style={{ boxShadow: '0px 7px 4px 0px #105993B2' }}
+              style={{ boxShadow: "0px 7px 4px 0px #105993B2" }}
             >
-              <img src={LocationIcon} alt="icon" className="w-[44px] h-[44px]" />
+              <img
+                src={LocationIcon}
+                alt="icon"
+                className="w-[44px] h-[44px]"
+              />
               {area.name}
             </div>
           </div>

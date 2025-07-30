@@ -1,9 +1,8 @@
-'use client';
-import React, { useState } from 'react';
-import contactImage from '../../src/assets/images/Contactimg.png';
-import { ConsultationCard } from './gallery-banner/hero/ConsultationCard';
-import ReCAPTCHA from 'react-google-recaptcha';
-import bg from '../assets/images/Bg12.png';
+"use client";
+import React, { useState } from "react";
+import contactImage from "../../src/assets/images/Contactimg.png";
+import { ConsultationCard } from "./gallery-banner/hero/ConsultationCard";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
@@ -15,22 +14,12 @@ export default function ContactForm() {
   };
 
   return (
-    <section
-      className="px-4 sm:px-6 pb-[200px] text-white pt-9 -mt-5"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className="px-4 sm:px-6 pb-[100px] text-white pt-9 -mt-5 relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* Form and Image Grid */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-start">
           {/* Left: Contact Form */}
-          <form
-            className="bg-white rounded-[20px] w-full max-w-full lg:w-[607px] p-6 sm:p-8 space-y-5 shadow-lg mt-3"
-          >
+          <form className="bg-white rounded-[20px] w-full max-w-full lg:w-[607px] p-6 sm:p-8 space-y-5 shadow-lg mt-3">
             <div>
               <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1 mt-6">
                 Email
@@ -87,12 +76,12 @@ export default function ContactForm() {
               type="submit"
               className={`w-full border-2 border-[#01B8FF] rounded-full py-3 font-bold flex justify-center items-center gap-2 transition ${
                 recaptchaVerified
-                  ? 'bg-[#01B8FF] text-white hover:opacity-90'
-                  : 'text-[#01B8FF] opacity-50 cursor-not-allowed'
+                  ? "bg-[#01B8FF] text-white hover:opacity-90"
+                  : "text-[#01B8FF] opacity-50 cursor-not-allowed"
               }`}
               disabled={!recaptchaVerified}
             >
-              Get In Touch{' '}
+              Get In Touch{" "}
               <span className="ml-1 text-[18px] font-normal">
                 <img
                   loading="lazy"

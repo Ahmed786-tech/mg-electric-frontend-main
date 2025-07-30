@@ -1,5 +1,7 @@
 import React from "react";
-import bg from "../assets/images/Bg8.png";
+import chooseUsBg from "@/assets/images/chooseUsBg.png";
+// import LeftDots from "@/assets/images/Leftdots.png";
+import RightDots from "../assets/images/RightDots.png";
 
 export default function WhyChooseUs({
   heading,
@@ -20,10 +22,26 @@ export default function WhyChooseUs({
   Paragraph,
 }) {
   return (
-    <section className="bg-cover bg-center text-white pt-20 pb-[150px] px-6 flex flex-col justify-center content-center"
-    style={{ backgroundImage: `url(${bg})`,backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+    <section className="bg-cover bg-center text-white pt-20 pb-[150px] px-6 flex flex-col justify-center content-center">
+      <div className="hidden md:block absolute mt-[300px] left-0 transform -translate-y-1/4 z-0 opacity-40">
+        <div className=" md:w-[600px] h-[800px] ">
+          <img src={chooseUsBg} alt="Decorative oval" />
+        </div>
+      </div>
+
+      <div className=" absolute mt-[800px] w-[70px] right-4  z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
-                {/* Left Image Section with 2-left + 1-middle-right */}
+        {/* Left Image Section with 2-left + 1-middle-right */}
         <div className={`relative flex w-1/2 lg:w-[40%] mt-[30px]`}>
           {/* Column with 2 stacked images (left side) */}
           <div className="flex flex-col gap-6">
@@ -40,10 +58,10 @@ export default function WhyChooseUs({
           </div>
 
           {/* Middle image — positioned in between */}
-<img
-  src={rightImage}
-  alt="Middle Right"
-  className={`
+          <img
+            src={rightImage}
+            alt="Middle Right"
+            className={`
     rounded-[10px] 
     w-${rightimgWidth} 
     h-${rightimgHeight} 
@@ -57,9 +75,8 @@ export default function WhyChooseUs({
     lg:transform 
     lg:-translate-y-1/2
   `}
-/>
+          />
         </div>
-
 
         {/* Content Section */}
         <div className="flex flex-col w-full lg:w-[50%] mt-10 lg:mt-0 lg:ml-[70px]">

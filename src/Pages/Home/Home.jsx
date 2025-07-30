@@ -23,6 +23,7 @@ import AreasWeCover from "../../Components/AreasWeCover";
 import { Banner } from "../../Components/gallery-banner/hero/Banner";
 import SectorsWeCover from "../../Components/SectorsWeCover";
 import OurGallery from "../../Components/OurGallery";
+import TestimonialSection from "../../Components/TestimonialSection";
 import ContactForm from "../../Components/ContactForm";
 import MapSection from "../../Components/MapSection";
 import bg from "../../assets/images/Bg9.png";
@@ -31,9 +32,10 @@ import aboutRightVecotr from "../../assets/images/aboutRightVector.png";
 import leftVector from "../../assets/images/leftVector.png";
 
 import LeftDots from "../../assets/images/Leftdots.png";
-import isolation_Mode from "/images/IsolationMode.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 import isolationMode2 from "../../assets/images/isolationVector2.png";
 import rightBgDots from "../../assets/images/rightSideDots.png";
+import rightSquareVector from "../../assets/images/rightSquareVector.png";
 
 function Home() {
   const servicesList = [
@@ -141,7 +143,7 @@ function Home() {
 
       <div className=" absolute w-[250px] mt-[-50px] right-0 transform  -translate-y-1/2 z-10">
         <img
-          src={isolation_Mode}
+          src={IsolationMode1}
           alt="Decorative oval"
           style={{
             objectFit: "contain",
@@ -190,11 +192,33 @@ function Home() {
         MarginBottom={"-mb-[50px]"}
         margintop2={"mt-8"}
       />
+      <div className="hidden md:block absolute mt-20 left-0 transform -translate-y-1/4 z-0 ">
+        <div className=" md:w-[470px] ">
+          <img src={bgDots} alt="Decorative oval" />
+        </div>
+      </div>
+
       <AreasWeCover />
       <Banner Background={bg} />
+      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[450px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
       <SectorsWeCover />
       <OurGallery />
+      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 opacity-30 ">
+        <div className=" md:w-[450px] ">
+          <img src={rightSquareVector} alt="Decorative oval" />
+        </div>
+      </div>
+      <TestimonialSection />
       <ContactForm />
+      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[450px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
       <MapSection />
     </div>
   );

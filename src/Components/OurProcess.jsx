@@ -3,6 +3,10 @@ import Icon1 from "../assets/svgs/Icon23.svg";
 import Icon2 from "../assets/svgs/Icon24.svg";
 import Icon3 from "../assets/svgs/Icon25.svg";
 import Icon4 from "../assets/svgs/Icon26.svg";
+import ConnectorLine1 from "@/assets/images/processStepVector1.png";
+import ConnectorLine2 from "@/assets/images/connector2.png";
+
+import ConnectorLine3 from "@/assets/images/connector3.png";
 
 const steps = [
   {
@@ -10,24 +14,28 @@ const steps = [
     description:
       "Get in touch using whichever contact method suits you, and tell us about your project.",
     icon: Icon1,
+    connector: ConnectorLine1, // Add connector image for each step
   },
   {
     title: "Schedule An On-Site Visit",
     description:
       "We can arrange an on-site visit at a time that suits you, or book a Teams call to discuss your requirements virtually.",
     icon: Icon2,
+    connector: ConnectorLine2,
   },
   {
     title: "We Provide A Quote",
     description:
       "We will then go over the details and provide you with a no obligation quote to have the work carried out.",
     icon: Icon3,
+    connector: ConnectorLine3,
   },
   {
     title: "Receive A Start Date",
     description:
       "If you're satisfied with the quote, we will contact you to arrange a date for us to complete the work.",
     icon: Icon4,
+    connector: null, // No connector after the last step
   },
 ];
 
@@ -49,33 +57,24 @@ const OurProcess = () => {
             <div
               key={index}
               className={`flex flex-col items-center text-center px-2 sm:px-4 relative ${
-                index === 1 || index === 3 ? "mt-0 lg:mt-[100px]" : ""
+                index === 1 || index === 3 ? "mt-0 lg:mt-[120px]" : ""
               }`}
             >
-              {/* Connecting Lines */}
-              {index < steps.length - 1 && (
-                <div className="absolute top-12 left-full w-full h-20 hidden lg:block">
-                  <svg
-                    className="w-full h-full"
-                    viewBox="0 0 200 100"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d={
-                        index === 0
-                          ? "M10 20 Q100 20 190 80" // Line from step 1 to 2 (down)
-                          : index === 1
-                          ? "M10 80 Q100 80 190 20" // Line from step 2 to 3 (up)
-                          : "M10 20 Q100 20 190 80" // Line from step 3 to 4 (down)
-                      }
-                      stroke="#01B8FF"
-                      strokeWidth="2"
-                      strokeDasharray="8,4"
-                      fill="none"
-                    />
-                  </svg>
-                </div>
+              {/* Connecting Line PNG */}
+              {step.connector && (
+                <img
+                  src={step.connector || "/placeholder.svg"}
+                  alt="connector line"
+                  className={`absolute top-12 left-52 w-full max-w-[240px] h-auto hidden lg:block z-10 ${
+                    index === 1
+                      ? "mt-0 md:mt-[-100px] ml-[-20px]"
+                      : index === 0
+                      ? "mt-0 md:mt-[-10px] ml-[-14px]"
+                      : index === 2
+                      ? "mt-0 md:mt-[20px] ml-[-17px]"
+                      : ""
+                  }`}
+                />
               )}
 
               <div className="p-4 rounded-[20px] w-[100px] h-[100px] flex items-center justify-center mb-6 shadow-md bg-[linear-gradient(180deg,#01B8FF_0%,#3E99BC_100%)] relative z-20">

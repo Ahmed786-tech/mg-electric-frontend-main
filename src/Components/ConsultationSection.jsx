@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import CityScape from "../assets/images/Cityimg.png";
-import bg from "../assets/images/HomeHeroFrame.png";
+import bg1 from "../assets/images/HomeHeroFrame.png";
 import LeftDots from "../assets/images/Leftdots.png";
 import RightDots from "../assets/images/RightDots.png";
 
@@ -60,7 +60,7 @@ export default function ConsultationSection() {
         <div
           className="absolute hidden md:block top-0 left-0 w-full h-full z-[-1]"
           style={{
-            backgroundImage: `url(${bg})`,
+            backgroundImage: `url(${bg1})`,
             backgroundSize: "contain",
             backgroundPosition: "top",
             backgroundRepeat: "no-repeat",

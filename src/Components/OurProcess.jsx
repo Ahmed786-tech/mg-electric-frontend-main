@@ -52,13 +52,40 @@ const OurProcess = () => {
                 index === 1 || index === 3 ? "mt-0 lg:mt-[100px]" : ""
               }`}
             >
-              <div className="p-4 rounded-[20px] w-[100px] h-[100px] flex items-center justify-center mb-6 shadow-md bg-[linear-gradient(180deg,#01B8FF_0%,#3E99BC_100%)]">
+              {/* Connecting Lines */}
+              {index < steps.length - 1 && (
+                <div className="absolute top-12 left-full w-full h-20 hidden lg:block">
+                  <svg
+                    className="w-full h-full"
+                    viewBox="0 0 200 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d={
+                        index === 0
+                          ? "M10 20 Q100 20 190 80" // Line from step 1 to 2 (down)
+                          : index === 1
+                          ? "M10 80 Q100 80 190 20" // Line from step 2 to 3 (up)
+                          : "M10 20 Q100 20 190 80" // Line from step 3 to 4 (down)
+                      }
+                      stroke="#01B8FF"
+                      strokeWidth="2"
+                      strokeDasharray="8,4"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+              )}
+
+              <div className="p-4 rounded-[20px] w-[100px] h-[100px] flex items-center justify-center mb-6 shadow-md bg-[linear-gradient(180deg,#01B8FF_0%,#3E99BC_100%)] relative z-20">
                 <img
-                  src={step.icon}
+                  src={step.icon || "/placeholder.svg"}
                   alt={step.title}
                   className="w-[60px] h-[60px] md:w-[70px] md:h-[70px]"
                 />
               </div>
+
               <h3 className="text-white font-bold text-[18px] sm:text-[20px] mb-2 font-andika">
                 {step.title}
               </h3>

@@ -4,6 +4,7 @@ import image2 from "@/assets/images/Img12.png";
 import surveyImage1 from "@/assets/images/surveyImage1.png";
 import surveyImage2 from "@/assets/images/surveyImage2.png";
 import surveyImage3 from "@/assets/images/surveyImage3.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 
 import { PhoneContact } from "./gallery-banner/hero/PhoneContact";
 import bg from "@/assets/images/Bg21.png";
@@ -12,7 +13,7 @@ export default function ServicesSection() {
   return (
     <section
       className="bg-cover bg-center bg-no-repeat text-white px-4 md:px-6"
-      style={{ backgroundImage: `url(${bg})` }}
+      // style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="max-w-7xl mx-auto text-center">
         <h3 className="text-[#01B8FF] font-normal text-[18px] md:text-[20px] mb-1 font-andika">
@@ -24,6 +25,16 @@ export default function ServicesSection() {
 
         {/* Top 3 Cards */}
         <div className="flex flex-wrap justify-center gap-6 mb-20">
+          <div className=" absolute w-[250px] mt-[550px] right-0 transform  -translate-y-1/4 z-10">
+            <img
+              src={IsolationMode1}
+              alt="Decorative oval"
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+              }}
+            />
+          </div>
           {[
             {
               image: surveyImage1,

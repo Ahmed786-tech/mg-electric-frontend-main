@@ -8,7 +8,7 @@ import Logo from "../../assets/svgs/logo.svg";
 export function Footer() {
   return (
     <footer className="flex flex-col">
-      <div className="flex flex-col items-center px-20 pt-20 pb-8 w-full border-t border-white max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col items-center px-20 pt-20 mt-16 pb-8 w-full border-t border-white max-md:px-5 max-md:max-w-full">
         <div className="flex flex-nowrap lg:flex-nowrap gap-5 w-full max-w-[1240px] max-md:flex-wrap max-md:max-w-full">
           <div className="w-[35%] lg:w-[35%] md:w-[50%] max-md:w-full">
             <CompanyInfo />

@@ -4,7 +4,7 @@ import { ImageGrid } from "./ImageGrid";
 import Approachimg from "@/assets/images/Approach.png";
 import img1 from "@/assets/images/img1.png";
 import img2 from "@/assets/images/img2.png";
-import bg from "@/assets/images/Bg17.png";
+import RightDots from "@/assets/images/RightDots.png";
 
 const approachData = [
   {
@@ -30,10 +30,18 @@ const gridImages = [img1, img2];
 
 export function ApproachSection() {
   return (
-    <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <section className="w-full bg-cover bg-center bg-no-repeat py-6 ">
+      <div className=" absolute w-[70px] right-4 mt-6 z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+      ;
       <div className="flex flex-col justify-center mx-auto max-w-[1244px] px-4 sm:px-6 md:px-8">
         {/* Section Title */}
         <div className="flex flex-col items-center text-center w-full mb-8">

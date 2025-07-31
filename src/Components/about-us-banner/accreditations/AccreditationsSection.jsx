@@ -37,15 +37,7 @@ const accreditations = [
 
 export function AccreditationsSection({ Background }) {
   return (
-    <section
-      className="flex flex-col justify-center w-full mt-8 pt-9 pb-16 "
-      style={{
-        backgroundImage: `url(${Background})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="flex flex-col justify-center w-full mt-8 pt-9 pb-16 relative z-10">
       <div
         style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}
         className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 shadow-sm min-h-[328px] w-full max-w-[1300px] mx-auto overflow-hidden rounded-3xl"

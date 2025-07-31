@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TeamMemberCard from "./TeamMemberCard";
 import CarouselControls from "./CarouselControls";
+import RightDots from "@/assets/images/RightDots.png";
+
 import { teamData } from "./teamData";
-import bg from "@/assets/images/Bg16.png";
 
 function TeamCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -66,10 +67,17 @@ function TeamCarousel() {
   };
 
   return (
-    <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <section className="w-full bg-cover bg-center bg-no-repeat ">
+      <div className=" absolute w-[70px] right-4 top-[370px] z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1350px]">
         <p className="font-normal text-[20px] text-[#01B8FF] mb-3 font-andika">
           Team
@@ -79,7 +87,8 @@ function TeamCarousel() {
         </h1>
         <p className="mt-6 text-sm leading-8 text-center text-white w-full max-w-[882px] font-inter">
           Our experienced team of professionals is passionate about their work
-          and dedicated to providing excellent service. We value our <br className="hidden sm:block" />
+          and dedicated to providing excellent service. We value our{" "}
+          <br className="hidden sm:block" />
           employees and foster a positive and supportive work environment.
         </p>
 

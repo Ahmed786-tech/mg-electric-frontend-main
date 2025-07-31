@@ -1,9 +1,8 @@
-'use client';
-import React, { useState } from 'react';
-import contactImage from '../../src/assets/images/Contactimg.png';
-import { ConsultationCard } from './gallery-banner/hero/ConsultationCard';
-import ReCAPTCHA from 'react-google-recaptcha';
-import Background from '../assets/images/Bg25.png';
+"use client";
+import React, { useState } from "react";
+import contactImage from "../../src/assets/images/Contactimg.png";
+import { ConsultationCard } from "./gallery-banner/hero/ConsultationCard";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactUsSection() {
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
@@ -15,22 +14,19 @@ export default function ContactUsSection() {
   };
 
   return (
-    <section
-      className="px-6 pb-20 text-white"
-      style={{
-        backgroundImage: `url(${Background})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <section className="px-6 pb-20 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-[#01B8FF] text-[20px] font-normal font-andika">Get In Touch</p>
-          <h2 className="text-[32px] md:text-5xl font-bold mb-6 font-andika">Contact Us</h2>
+          <p className="text-[#01B8FF] text-[20px] font-normal font-andika">
+            Get In Touch
+          </p>
+          <h2 className="text-[32px] md:text-5xl font-bold mb-6 font-andika">
+            Contact Us
+          </h2>
           <p className="text-[14px] text-white max-w-2xl mx-auto font-inter font-normal leading-[30px]">
-            Let us help you transform your facility with our expert electrical installation and upgrade services.
+            Let us help you transform your facility with our expert electrical
+            installation and upgrade services.
             <br />
             Contact us today for a consultation.
           </p>
@@ -41,7 +37,9 @@ export default function ContactUsSection() {
           {/* Contact Form */}
           <form className="bg-white rounded-[20px] w-full max-w-[607px] mx-auto p-6 sm:p-8 space-y-5 shadow-lg mt-3">
             <div>
-              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1 mt-6">Email</label>
+              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1 mt-6">
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="Enter Your Email"
@@ -50,7 +48,9 @@ export default function ContactUsSection() {
             </div>
 
             <div>
-              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">Phone</label>
+              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">
+                Phone
+              </label>
               <input
                 type="text"
                 placeholder="Enter Phone"
@@ -59,7 +59,9 @@ export default function ContactUsSection() {
             </div>
 
             <div>
-              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">Subject</label>
+              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">
+                Subject
+              </label>
               <input
                 type="text"
                 placeholder="Enter Subject"
@@ -68,7 +70,9 @@ export default function ContactUsSection() {
             </div>
 
             <div>
-              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">Message</label>
+              <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1">
+                Message
+              </label>
               <textarea
                 placeholder="Type Your Message"
                 className="w-full border border-[#C8C8C8] rounded-md px-4 py-3 h-24 text-[#9D9797] text-[15px] font-normal font-poppins"
@@ -76,15 +80,18 @@ export default function ContactUsSection() {
             </div>
 
             <div className="pt-2">
-              <ReCAPTCHA sitekey="YOUR_RECAPTCHA_SITE_KEY" onChange={handleRecaptcha} />
+              <ReCAPTCHA
+                sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                onChange={handleRecaptcha}
+              />
             </div>
 
             <button
               type="submit"
               className={`w-full border-2 border-[#01B8FF] rounded-full py-3 font-bold flex justify-center items-center gap-2 transition ${
                 recaptchaVerified
-                  ? 'bg-[#01B8FF] text-white hover:opacity-90'
-                  : 'text-[#01B8FF] opacity-50 cursor-not-allowed'
+                  ? "bg-[#01B8FF] text-white hover:opacity-90"
+                  : "text-[#01B8FF] opacity-50 cursor-not-allowed"
               }`}
               disabled={!recaptchaVerified}
             >

@@ -3,6 +3,8 @@
 import Bulb from "@/assets/images/bulbWithQuestionMark.png";
 import arrowUp from "@/assets/svgs/arrowUp.svg";
 import arrowUp1 from "@/assets/svgs/arrowUp1.svg";
+import RightDots from "../assets/images/RightDots.png";
+import isolationMode2 from "@/assets/images/isolationVector2.png";
 
 import { useState, useRef, useEffect } from "react";
 
@@ -70,6 +72,27 @@ export default function FAQSection({ faqData }) {
 
   return (
     <div className=" pb-16 px-4 relative overflow-hidden z-10">
+      <div className=" absolute w-[200px] mt-[30px] left-2 transform  -translate-y-1/4 z-0">
+        <img
+          src={isolationMode2}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className=" absolute w-[70px] right-4 top-[0px] z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

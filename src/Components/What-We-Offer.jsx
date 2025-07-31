@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/images/Bg22.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 
 export default function WeOffer({
   heading,
@@ -19,10 +19,17 @@ export default function WeOffer({
   margintop2,
 }) {
   return (
-    <section
-      className="bg-cover bg-center bg-no-repeat text-white py-12 px-4 sm:px-6"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <section className="bg-cover bg-center bg-no-repeat text-white py-12 px-4 sm:px-6 relative">
+      <div className=" absolute w-[200px] mt-[680px] right-0 transform  -translate-y-1/4 z-10">
+        <img
+          src={IsolationMode1}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Images */}
         <div

@@ -1,26 +1,54 @@
 import * as React from "react";
-import bg from "../assets/images/Bg14.png";
+// import bg from "../assets/images/Bg14.png";
 import bg1 from "../assets/images/serviceHeroBg1.png";
+import squareBg from "../assets/images/HomeHeroFrame.png";
+import LeftDots from "../assets/images/Leftdots.png";
+import RightDots from "../assets/images/RightDots.png";
+
+import IsolationMode from "../assets/images/Isolation_Mode_Left.png";
 
 export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
   return (
-    <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      {/* Centered content container bg-gradient-to-b from-[rgba(164,186,205,0)] to-[#032039] */}
+    <section className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 relative z-10">
+      <div className=" absolute w-[70px] left-4 transform mt-8 -translate-y-1/4 z-10">
+        <img
+          src={LeftDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className="hidden md:block absolute left-0 transform mt-12 -translate-y-1/5 z-10">
+        <img
+          src={IsolationMode}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <div
-        // style={{
-        //   background:
-        //     "linear-gradient(180deg, rgba(164,186,205,0) 0%, rgba(164,186,205,0.1) 0%, #001E39 100%)",
-        // }}
         style={{ backgroundImage: `url(${bg1})` }}
         className="max-w-[1244px] bg-cover bg-center bg-no-repeat w-full rounded-none sm:rounded-[20px]  px-4 sm:px-6 md:px-8 mx-auto"
       >
         <div className="py-6 sm:py-8 md:py-11 w-full  ">
-          <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-5">
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-5 relative z-10">
             {/* Text Content */}
-            <div className="w-full lg:w-[46%] order-2 lg:order-1 flex flex-col justify-center">
+            <div className="hidden md:block absolute w-[650px] left-8 transform  -translate-y-1/2 z-0 opacity-30">
+              <img
+                src={squareBg}
+                alt="Decorative oval"
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
+              />
+            </div>
+            <div className="w-full lg:w-[46%] order-2 lg:order-1 flex flex-col justify-center relative z-10">
               <div className="space-y-3 sm:space-y-4">
                 <div className="text-[18px] sm:text-[20px] font-bold text-[#01B8FF] font-andika">
                   {tag}

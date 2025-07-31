@@ -23,6 +23,10 @@ import icon10 from "../../assets/svgs/Icon10.svg";
 import icon11 from "../../assets/svgs/Icon11.svg";
 import icon12 from "../../assets/svgs/Icon12.svg";
 import bg from "../../assets/images/Bg24.png";
+import aboutRightVecotr from "../../assets/images/aboutRightVector.png";
+import bgDots from "../../assets/images/bgDots.png";
+import rightBgDots from "../../assets/images/rightSideDots.png";
+import chooseUsBg from "@/assets/images/chooseUsBg.png";
 
 export default function ElectricalInstallation() {
   const faqData = [
@@ -155,6 +159,16 @@ export default function ElectricalInstallation() {
         imageSrc={electricalimg}
         imageAlt="Healthcare and Commercial Electrical Services"
       />
+      <div className="hidden md:block absolute mt-[280px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[370px] ">
+          <img src={bgDots} alt="Decorative oval" />
+        </div>
+      </div>
+      <div className="hidden md:block absolute mt-[-90px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[500px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
       <WeOffer
         titleTag="What We Offer"
         heading="About Electrical Installations & Upgrades"
@@ -171,6 +185,7 @@ export default function ElectricalInstallation() {
         margintop={"mt-[130px]"}
         margintop2={"mt-8"}
       />
+
       <BenefitsSection
         heading="Benefits"
         subheading="Benefits Of Electrical Installations & Upgrades"
@@ -178,9 +193,25 @@ export default function ElectricalInstallation() {
         leftImage={leftimg1}
         rightImage={rightimg1}
       />
+
+      <div className="hidden md:block absolute mt-[-100px] right-0 transform -translate-y-1/4 z-0 ">
+        <div className=" md:w-[370px] ">
+          <img src={rightBgDots} alt="Decorative oval" />
+        </div>
+      </div>
       <AccreditationsSection Background={bg} />
+      <div className="hidden md:block absolute mt-[0px] left-0 transform -translate-y-1/4 z-0 opacity-20">
+        <div className=" md:w-[600px] h-[800px] ">
+          <img src={chooseUsBg} alt="Decorative oval" />
+        </div>
+      </div>
       <FaqSection faqData={faqData} />
       <ContactUsSection />
+      <div className="hidden md:block absolute mt-[-50px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[500px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
     </div>
   );
 }

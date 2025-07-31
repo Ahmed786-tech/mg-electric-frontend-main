@@ -1,7 +1,11 @@
-import React from "react";
 import { GalleryRow } from "./GalleryRow";
 import { ViewMoreButton } from "./ViewMoreButton";
-import bg from "../../../assets/images/Bg19.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
+import isolationMode2 from "@/assets/images/isolationVector2.png";
+
+import leftVector from "@/assets/images/leftVector.png";
+import rightBgDots from "@/assets/images/rightSideDots.png";
+import LeftDots from "@/assets/images/Leftdots.png";
 
 const galleryImages = [
   {
@@ -71,11 +75,51 @@ const galleryImages = [
 
 export function ImageGallery() {
   return (
-    <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
-      <div className="max-w-[1244px] mx-auto px-4 sm:px-6 md:px-8">
+    <section className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 relative z-10">
+      <div className="hidden md:block absolute  bottom-[220px] right-0 transform -translate-y-1/4 z-0 ">
+        <div className=" md:w-[450px] ">
+          <img src={rightBgDots} alt="Decorative oval" />
+        </div>
+      </div>
+      <div className="hidden md:block absolute bottom-[1100px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className=" md:w-[440px] ">
+          <img src={leftVector} alt="Decorative oval" />
+        </div>
+      </div>
+      <div className=" absolute w-[250px] top-[600px] right-0 transform  -translate-y-1/2 z-10">
+        <img
+          src={IsolationMode1}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className=" absolute w-[200px] bottom-[750px] left-0 transform  -translate-y-1/4 z-10">
+        <img
+          src={isolationMode2}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className=" absolute w-[70px] bottom-[1160px] left-4 transform  -translate-y-1/4 z-10">
+        <img
+          src={LeftDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      <div className="max-w-[1244px] mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="flex flex-col w-full">
           {galleryImages.map((row, index) => (
             <GalleryRow

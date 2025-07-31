@@ -1,13 +1,23 @@
-import * as React from "react";
 import { NavigationColumn } from "./components/NavigationColumn";
 import { ContactInfo } from "./components/ContactInfo";
 import { CompanyInfo } from "./components/CompanyInfo";
 import { navigationLinks, servicesLinks } from "./data/navigationData";
 import Logo from "../../assets/svgs/logo.svg";
+import RightDots from "@/assets/images/RightDots.png";
 
 export function Footer() {
   return (
-    <footer className="flex flex-col">
+    <footer className="flex flex-col relative">
+      <div className=" absolute w-[70px] right-4 top-[250px] z-10">
+        <img
+          src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
       <div className="flex flex-col items-center px-20 pt-20 mt-16 pb-8 w-full border-t border-white max-md:px-5 max-md:max-w-full">
         <div className="flex flex-nowrap lg:flex-nowrap gap-5 w-full max-w-[1240px] max-md:flex-wrap max-md:max-w-full">
           <div className="w-[35%] lg:w-[35%] md:w-[50%] max-md:w-full">

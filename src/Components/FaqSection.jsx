@@ -7,11 +7,13 @@ import RightDots from "../assets/images/RightDots.png";
 import isolationMode2 from "@/assets/images/isolationVector2.png";
 
 import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function FAQSection({ faqData }) {
   const [faqs, setFaqs] = useState(faqData);
   const [imageHeight, setImageHeight] = useState(0);
   const accordionRef = useRef(null);
+  const location = useLocation();
 
   const toggleFAQ = (id) => {
     const currentFaq = faqs.find((faq) => faq.id === id);
@@ -72,7 +74,13 @@ export default function FAQSection({ faqData }) {
 
   return (
     <div className=" pb-16 px-4 relative overflow-hidden z-10">
-      <div className=" absolute w-[200px] mt-[30px] left-2 transform  -translate-y-1/4 z-0">
+      <div
+        className={` ${
+          location.pathname !== "/services/emergency-lighting"
+            ? "mt-[30px]"
+            : "mt-[400px]"
+        } absolute w-[200px]  left-2 transform  -translate-y-1/4 z-0`}
+      >
         <img
           src={isolationMode2}
           alt="Decorative oval"
@@ -83,7 +91,13 @@ export default function FAQSection({ faqData }) {
         />
       </div>
 
-      <div className=" absolute w-[70px] right-4 top-[0px] z-10">
+      <div
+        className={`${
+          location.pathname !== "/services/emergency-lighting"
+            ? "mt-[30px]"
+            : "mt-[400px]"
+        } absolute w-[70px] right-4 top-[0px] z-10`}
+      >
         <img
           src={RightDots}
           alt="Decorative oval"

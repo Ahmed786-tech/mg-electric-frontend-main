@@ -3,6 +3,7 @@ import ContactForm from "../../Components/contact-us/contactForm/ContactForm";
 import { ContactSection } from "../../Components/contact-us/contact/ContactSection";
 import PageTitle from "../../Components/PageTitle";
 import Contactimg from "../../assets/images/Contact.png";
+import aboutRightVecotr from "@/assets/images/aboutRightVector.png";
 
 function ContactUs() {
   return (
@@ -14,6 +15,11 @@ function ContactUs() {
         imageSrc={Contactimg}
         imageAlt="Healthcare and Commercial Electrical Services"
       />
+      <div className="hidden md:block absolute mt-[370px] top-0 right-0  z-0 ">
+        <div className=" md:w-[500px] ">
+          <img src={aboutRightVecotr} alt="Decorative oval" />
+        </div>
+      </div>
       <ContactForm />
       <ContactSection />
     </div>

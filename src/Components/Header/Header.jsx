@@ -211,9 +211,6 @@ const Header = () => {
           }
           
           @media (max-width: 768px) {
-          a{
-          display: none;
-          }
             .header {
               width: 95%;
               height: auto;
@@ -356,7 +353,7 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="nav-link">
+                <Link to="/team" className="nav-link">
                   Meet the Team
                 </Link>
               </li>
@@ -387,13 +384,13 @@ const Header = () => {
         <nav>
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={toggleDrawer}>
+              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
                 About us
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
-                What we do
+              <Link to="/services" className="nav-link" onClick={toggleDrawer}>
+                Our services
               </Link>
             </li>
             <li
@@ -417,7 +414,7 @@ const Header = () => {
                 <ul className="dropdown">
                   <li>
                     <Link
-                      to="/services/web"
+                      to="/services/electrical-installations"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -426,16 +423,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/services/web"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Electrical Testing & Inspections
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/web"
+                      to="/services/emergency-lighting"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -444,7 +432,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/services/web"
+                      to="/services/backup-power"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -453,7 +441,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/services/web"
+                      to="/services/fire-alarms"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -462,7 +450,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/services/web"
+                      to="/services/data-cabling"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -471,7 +459,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to="/services/web"
+                      to="/services/maintenance"
                       className="dropdown-item"
                       onClick={toggleDrawer}
                     >
@@ -483,19 +471,26 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>
-                Portfolio
+                Recent Projects
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/blog" className="nav-link" onClick={toggleDrawer}>
-                Blog
+              <Link to="/team" className="nav-link" onClick={toggleDrawer}>
+                Meet the Team
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link" onClick={toggleDrawer}>
+                Contact Us
               </Link>
             </li>
           </ul>
         </nav>
-        <button className="contact-button">
-          <span className="contact-button-text">Contact Us</span>
-        </button>
+        <Link to="/contact" onClick={toggleDrawer}>
+          <button className="contact-button">
+            <span className="contact-button-text">Contact Us</span>
+          </button>
+        </Link>
       </div>
     </>
   );

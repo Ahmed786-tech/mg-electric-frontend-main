@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import LeftDots from "../assets/images/Leftdots.png";
+import { useLocation } from "react-router-dom";
 
 export default function BenefitsSection({
   heading,
@@ -12,19 +13,22 @@ export default function BenefitsSection({
 }) {
   const firstHalf = benefits.slice(0, 3);
   const secondHalf = benefits.slice(3);
+  const location = useLocation();
 
   return (
     <section className="bg-cover bg-center bg-no-repeat text-white py-8 px-4 sm:px-6 md:px-10 relative">
-      <div className=" absolute w-[70px] left-2 transform bottom-[130px] -translate-y-1/4 z-10">
-        <img
-          src={LeftDots}
-          alt="Decorative oval"
-          style={{
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-        />
-      </div>
+      {location.pathname !== "/services/emergency-lighting" && (
+        <div className="absolute w-[70px] left-2 transform bottom-[130px] -translate-y-1/4 z-10">
+          <img
+            src={LeftDots}
+            alt="Decorative oval"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",
+            }}
+          />
+        </div>
+      )}
       <div className="flex justify-center">
         <div className="w-full max-w-[1300px]">
           {/* Section Title */}

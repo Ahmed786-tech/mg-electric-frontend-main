@@ -89,7 +89,7 @@ export default function ConsultationSection() {
           </div>
 
           {/* Form Container */}
-          <div className="bg-white text-[#06142F] rounded-2xl px-4 sm:px-6 md:px-8 pt-4 pb-9 shadow-2xl w-full lg:w-[650px]">
+          <div className="bg-white text-[#06142F] rounded-2xl px-4 sm:px-6 md:px-8 pt-4 pb-9 w-full lg:w-[650px]" style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}>
             <p className="text-[18px] md:text-[20px] text-[#01B8FF] font-normal font-andika">
               Consultation
             </p>

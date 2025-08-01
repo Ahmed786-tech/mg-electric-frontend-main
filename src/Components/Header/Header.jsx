@@ -65,7 +65,6 @@ const Header = () => {
           
           .nav-link {
             display: flex;
-            width: 99px;
             height: 28px;
             justify-content: center;
             align-items: center;

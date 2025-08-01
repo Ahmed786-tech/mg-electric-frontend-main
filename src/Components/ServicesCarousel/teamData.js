@@ -1,6 +1,6 @@
-import img1 from "../../assets/images/Img16.png";
-import img2 from "../../assets/images/Img17.png";
-import img3 from "../../assets/images/Img18.png";
+import img1 from "../../../public/images/IMG_0207.jpg";
+import img2 from "../../../public/images/IMG_2502.jpg";
+import img3 from "../../../public/images/IMG_0217.jpg";
 export const teamData = [
   {
     id: 1,

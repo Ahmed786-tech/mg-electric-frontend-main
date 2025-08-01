@@ -48,10 +48,10 @@ function OurGallery() {
           ))}
         </div>
 
-        {/* View More Button */}
+        {/* View More Button
         <div className="flex justify-center">
           <ViewMoreButton />
-        </div>
+        </div> */}
       </div>
     </section>
   );

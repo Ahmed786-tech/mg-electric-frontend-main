@@ -92,18 +92,7 @@ export function AccreditationsSection({ Background }) {
 
   return (
     <section className="flex flex-col justify-center w-full mt-8 pt-9 pb-16 relative z-10">
-      {location.pathname !== "/services/electrical-installations" && (
-        <div className="absolute w-[70px] left-2 transform bottom-[180px] -translate-y-1/4 z-10">
-          <img
-            src={LeftDots || "/placeholder.svg"}
-            alt="Decorative oval"
-            style={{
-              objectFit: "contain",
-              objectPosition: "center",
-            }}
-          />
-        </div>
-      )}
+     
 
       <div
         style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}

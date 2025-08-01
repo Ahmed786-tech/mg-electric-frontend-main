@@ -31,7 +31,7 @@ const sectors = [
 export default function SectorsWeCover() {
   return (
     <section
-      className="px-4 text-white "
+      className="px-4 text-white mt-20"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundRepeat: "no-repeat",
@@ -39,7 +39,7 @@ export default function SectorsWeCover() {
         backgroundPosition: "center",
       }}
     >
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-4">
         {/* Left Side */}
         <div className="flex flex-col space-y-8 w-full lg:w-[405px]">
           {/* Heading & Description */}
@@ -67,9 +67,9 @@ export default function SectorsWeCover() {
         </div>
 
         {/* Right Side Grid */}
-        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-6 lg:-ml-[150px]">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4">
           {/* Column 1 */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             <img
               src={rightimg1}
               alt="Wiring"
@@ -84,7 +84,7 @@ export default function SectorsWeCover() {
           </div>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-3">
             <SectorCard {...sectors[0]} />
             <SectorCard {...sectors[2]} />
           </div>
@@ -96,7 +96,7 @@ export default function SectorsWeCover() {
 
 function SectorCard({ icon, title, description }) {
   return (
-    <div className="text-[#011C33] rounded-[25px] border-2 border-[#01B8FF] p-3 text-center shadow-md w-full max-w-[365px] h-auto lg:h-[444px] flex flex-col">
+    <div className="text-[#011C33] rounded-xl border border-[#01B8FF] p-2 text-center shadow-md w-full max-w-[365px] h-auto lg:h-[444px] flex flex-col">
       <div className="bg-white rounded-[10px] p-3.5 flex-grow flex flex-col">
         <div className="flex justify-center mb-4 mt-6">
           <img src={icon} alt={`${title} icon`} width={75} height={75} />

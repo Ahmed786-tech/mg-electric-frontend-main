@@ -15,11 +15,11 @@ export default function ContactForm() {
 
   return (
     <section className="px-4 sm:px-6 pb-[100px] text-white pt-9 -mt-5 relative z-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Form and Image Grid */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           {/* Left: Contact Form */}
-          <form className="bg-white rounded-[20px] w-full max-w-full lg:w-[607px] p-6 sm:p-8 space-y-5 shadow-lg mt-3">
+          <form className="lg:col-span-2 bg-white rounded-[20px] w-full p-6 sm:p-8 space-y-5 shadow-lg mt-3">
             <div>
               <label className="block text-[#7A7878] font-bold font-andika text-[15px] mb-1 mt-6">
                 Email
@@ -94,17 +94,17 @@ export default function ContactForm() {
           </form>
 
           {/* Right: Image & Contact Box */}
-          <div className="space-y-6 w-full">
-            <div className="rounded-[16px] overflow-hidden shadow-lg w-full max-w-full lg:w-[595px]">
+          <div className="lg:col-span-2 flex flex-col gap-4 w-full h-full mt-3">
+            <div className="rounded-[16px] overflow-hidden shadow-lg w-full max-w-full">
               <img
                 src={contactImage}
                 alt="Contact handshake"
-                className="w-full h-auto lg:h-[460px] object-cover"
+                className="w-full object-cover h-[425px]"
               />
             </div>
 
-            <div className="w-full max-w-full lg:w-[589px]">
-              <ConsultationCard width="100%" height="221px" />
+            <div className="w-full">
+              <ConsultationCard width="100%" />
             </div>
           </div>
         </div>

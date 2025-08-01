@@ -45,16 +45,6 @@ export default function Component() {
 
   return (
     <div className=" py-16 px-4 relative">
-      <div className=" absolute w-[70px] right-1 top-[200px] z-10">
-        <img
-          src={RightDots}
-          alt="Decorative oval"
-          style={{
-            objectFit: "contain",
-            scale: "-1",
-          }}
-        />
-      </div>
       <div className="max-w-7xl mx-auto relative">
         <h4 className="text-[#01B8FF] font-normal text-xl text-center pb-2">
           Testimonials

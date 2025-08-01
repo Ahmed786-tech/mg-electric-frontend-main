@@ -47,7 +47,7 @@ export default function AreasWeCover() {
             </div>
             <div
               className="bg-[#001A33] text-white px-6 py-4 rounded-[10px] w-[290px] h-[85px] mt-[-24px] shadow-lg relative z-10 flex items-center justify-center gap-2 font-normal text-[30px] font-andika 
-              sm:ml-[55px] ml-0"
+              "
               style={{ boxShadow: "0px 7px 4px 0px #105993B2" }}
             >
               <img

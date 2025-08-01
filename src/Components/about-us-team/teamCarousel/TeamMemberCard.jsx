@@ -27,7 +27,7 @@ function TeamMemberCard({ image, name, position, description, socialIcons }) {
           <div className="relative self-stretch mt-3 text-[18px] font-medium leading-8 text-center text-[#848484] font-lato z-10 max-md:text-[16px] max-sm:text-[14px] max-sm:leading-6 flex-1">
             {description}
           </div>
-          <div className="flex relative justify-center items-center mt-3 w-full z-10">
+          <div className="flex justify-center items-center mt-3 w-full z-10">
             <SocialIcons icons={socialIcons} />
           </div>
         </div>

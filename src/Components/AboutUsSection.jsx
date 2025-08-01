@@ -58,9 +58,9 @@ export default function AboutUsSection({
         </div>
 
         {/* Right Image Section */}
-        <div className="relative flex flex-col sm:flex-row gap-6 w-full lg:w-[50%] items-center lg:items-start mt-8 lg:mt-[30px]">
-          {/* 2 stacked left images */}
-          <div className="flex flex-col gap-6 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-col lg:flex-row gap-2 w-full lg:w-1/2 items-center lg:items-start mt-8">
+          {/* Left column with two images stacked vertically */}
+          <div className="flex flex-col gap-6 w-full lg:w-1/2">
             <img
               src={leftImage}
               alt="Top Left"
@@ -73,14 +73,14 @@ export default function AboutUsSection({
             />
           </div>
 
-          {/* Absolute middle image on large screens, static stacked on small screens */}
-          <img
-            src={rightImage}
-            alt="Middle Right"
-            className={`rounded-[10px] object-cover w-${rightimgWidth} h-${rightimgHeight}
-              lg:absolute lg:left-[60%] lg:top-1/2 lg:transform lg:-translate-y-1/2
-              sm:static sm:mt-4`}
-          />
+          {/* Right column with single image centered vertically */}
+          <div className="w-full lg:w-1/2 flex items-center justify-center">
+            <img
+              src={rightImage}
+              alt="Right Image"
+              className={`rounded-[10px] w-${rightimgWidth} h-${rightimgHeight} object-cover`}
+            />
+          </div>
         </div>
       </div>
     </section>

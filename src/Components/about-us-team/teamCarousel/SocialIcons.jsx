@@ -2,7 +2,7 @@ import React from "react";
 
 function SocialIcons({ icons }) {
   return (
-    <div className="flex justify-center items-center mt-6 w-full max-w-[278px] mx-auto sm:mx-0">
+    <div className="flex justify-center items-center">
       <div className="flex gap-4 items-center flex-wrap justify-center sm:justify-start w-full">
         {icons.map((icon) => (
           <button

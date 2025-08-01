@@ -24,7 +24,7 @@ export default function ServicesSection() {
         </h2>
 
         {/* Top 3 Cards */}
-        <div className="flex flex-wrap justify-center gap-6 mb-20">
+        <div className="flex flex-wrap justify-center gap-6 mb-6">
           <div className=" absolute w-[250px] mt-[550px] right-0 transform  -translate-y-1/4 z-10">
             <img
               src={IsolationMode1}
@@ -42,29 +42,9 @@ export default function ServicesSection() {
               desc: "From new installations to upgrades, we provide comprehensive electrical solutions.",
             },
             {
-              image: surveyImage2,
-              title: "Maintenance & Reactive Repairs",
-              desc: "Our maintenance and repair services keep your electrical systems running smoothly.",
-            },
-            {
               image: surveyImage3,
               title: "Backup Power & Emergency Lighting Solutions",
               desc: "We offer reliable emergency lighting and backup power systems to keep your facility running during power outages.",
-            },
-            {
-              image: surveyImage2,
-              title: "Fire Alarms & Safety Systems",
-              desc: "We install and maintain fire alarm systems to protect your facility and occupants.",
-            },
-            {
-              image: surveyImage3,
-              title: "Data Cabling & Networking",
-              desc: "We design and install high-performance data networks for seamless connectivity.",
-            },
-            {
-              image: surveyImage1,
-              title: "Maintenance & Reactive Repairs",
-              desc: "Our maintenance and repair services keep your electrical systems running smoothly.",
             },
           ].map((item, idx) => (
             <div

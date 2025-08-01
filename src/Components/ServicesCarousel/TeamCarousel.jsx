@@ -30,31 +30,29 @@ function TeamCarousel() {
     enter: (direction) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
+      position: "absolute",
     }),
     center: {
-      zIndex: 1,
       x: 0,
       opacity: 1,
+      position: "relative",
     },
     exit: (direction) => ({
-      zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
+      position: "absolute",
     }),
-  };
-
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
   };
 
   const paginate = (newDirection) => {
-    setDirection(newDirection);
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex + newDirection + teamData.length) % teamData.length
-    );
-  };
+  const newIndex = currentIndex + newDirection * slidesToShow;
+
+  // Prevent overflow or underflow based on visible group
+  if (newIndex < 0 || newIndex + slidesToShow > teamData.length) return;
+
+  setDirection(newDirection);
+  setCurrentIndex(newIndex);
+};
 
   const getVisibleSlides = () => {
     const slides = [];
@@ -66,16 +64,13 @@ function TeamCarousel() {
   };
 
   return (
-    <section className="w-full  py-10 md:py-12">
+    <section className="w-full py-10 md:py-12">
       <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1350px]">
-        <div className=" absolute hidden md:block md:w-[700px] opacity-30  z-10">
+        <div className="absolute hidden md:block md:w-[700px] opacity-30 z-10">
           <img
             src={bg}
             alt="Decorative oval"
-            style={{
-              objectFit: "contain",
-              objectPosition: "center",
-            }}
+            style={{ objectFit: "contain", objectPosition: "center" }}
           />
         </div>
         <p className="font-normal text-[20px] text-[#01B8FF] mb-3 font-andika">
@@ -84,6 +79,7 @@ function TeamCarousel() {
         <h1 className="text-3xl sm:text-4xl font-bold text-white text-center font-andika">
           Premium electrical services in Surrey
         </h1>
+
         <div className="relative w-full flex flex-col items-center">
           <div className="my-7">
             <CarouselControls
@@ -95,41 +91,34 @@ function TeamCarousel() {
           </div>
 
           {/* Slider section */}
-          <div className="h-[600px]  flex items-center justify-center">
-            <AnimatePresence initial={false} custom={direction}>
-              <div className="flex gap-4 justify-center px-2 sm:px-4 w-full">
+          <div className="relative w-full overflow-hidden h-[600px] flex items-center justify-center">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className="flex gap-4 justify-center px-2 sm:px-4 w-full"
+              >
                 {getVisibleSlides().map((slideIndex) => (
-                  <motion.div
+                  <div
                     key={slideIndex}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
-                    }}
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={1}
-                    onDragEnd={(e, { offset, velocity }) => {
-                      const swipe = swipePower(offset.x, velocity.x);
-                      if (swipe < -swipeConfidenceThreshold) {
-                        paginate(1);
-                      } else if (swipe > swipeConfidenceThreshold) {
-                        paginate(-1);
-                      }
-                    }}
                     className="w-full sm:w-1/2 lg:w-1/3 flex justify-center"
                   >
                     <TeamMemberCard {...teamData[slideIndex]} />
-                  </motion.div>
+                  </div>
                 ))}
-              </div>
+              </motion.div>
             </AnimatePresence>
           </div>
-          <button className=" border-2 text-[#01B8FF] border-[#01B8FF] rounded-lg py-3 px-20 font-medium mt-10">
+
+          <button className="border-2 text-[#01B8FF] border-[#01B8FF] rounded-lg py-3 px-20 font-medium mt-10">
             View All Services
           </button>
         </div>

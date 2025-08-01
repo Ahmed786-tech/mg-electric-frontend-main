@@ -31,7 +31,7 @@ export const teamData = [
   },
   {
     id: 2,
-    name: "Jhone Doe",
+    name: "Gill Dearlove",
     position: "Mechanical Engineering",
     image: img2,
     description:

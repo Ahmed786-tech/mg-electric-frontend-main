@@ -103,7 +103,7 @@ function TeamCarousel() {
           </div>
 
           {/* Slider section */}
-          <div className="h-[600px] w-full flex items-center justify-center">
+          <div className="h-[400px] w-full flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction}>
               <div className="flex gap-4 justify-center px-2 sm:px-4 w-full">
                 {getVisibleSlides().map((slideIndex) => (

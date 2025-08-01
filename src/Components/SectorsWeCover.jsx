@@ -39,7 +39,7 @@ export default function SectorsWeCover() {
         backgroundPosition: "center",
       }}
     >
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-4">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-2">
         {/* Left Side */}
         <div className="flex flex-col space-y-8 w-full lg:w-[405px]">
           {/* Heading & Description */}

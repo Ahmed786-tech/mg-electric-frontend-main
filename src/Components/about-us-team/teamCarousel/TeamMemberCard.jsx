@@ -5,12 +5,7 @@ function TeamMemberCard({ image, name, position, description, socialIcons }) {
   return (
     <div className="flex gap-2.5 items-stretch px-4 py-3.5 rounded-[20px] border border-solid border-zinc-400 w-[394px] max-md:w-full max-sm:flex-col max-sm:items-start">
       <div className="flex flex-col pt-3 my-auto bg-white rounded-xl w-[362px] max-md:w-full h-full">
-        <img
-          loading="lazy"
-          src={image || "/placeholder.svg"}
-          alt={`${name}'s profile`}
-          className="object-contain px-2.5 w-full rounded-[10px] max-md:w-full"
-        />
+        
         <div className="flex relative flex-col items-center px-6 py-4 w-full rounded-none flex-1">
           <img
             loading="lazy"

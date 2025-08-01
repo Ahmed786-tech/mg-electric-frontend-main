@@ -3,7 +3,7 @@ import LocationIcon from "@/assets/svgs/Icon32.svg";
 import Locationimg1 from "../assets/images/Img22.png";
 import Locationimg2 from "../assets/images/Img23.png";
 import Locationimg3 from "../assets/images/Img24.png";
-import bg from "../assets/images/bg2.png";
+import bg from "../assets/images/bg26.png";
 
 const areas = [
   {
@@ -23,8 +23,8 @@ const areas = [
 export default function AreasWeCover() {
   return (
     <section
-      className="bg-cover bg-center py-16 px-4 md:px-20 text-white text-center relative z-10"
-      style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}
+      className="bg-cover bg-center py-16 px-4 md:px-20 text-white text-center relative"
+      style={{ backgroundImage: `url(${bg})`, backgroundSize: "" }}
     >
       {/* Heading */}
       <p className="text-[#01B8FF] text-[20px] font-normal mb-2 font-andika">

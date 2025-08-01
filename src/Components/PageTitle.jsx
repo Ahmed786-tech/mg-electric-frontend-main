@@ -10,7 +10,7 @@ import IsolationMode from "../assets/images/Isolation_Mode_Left.png";
 export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
   return (
     <section className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 relative z-10">
-      {/* <div className=" absolute w-[70px] right-4 top-[250px] z-10">
+      <div className=" absolute w-[70px] right-4 top-[250px] z-10">
         <img
           src={RightDots}
           alt="Decorative oval"
@@ -19,7 +19,7 @@ export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
             objectPosition: "center",
           }}
         />
-      </div> */}
+      </div>
       <div className=" absolute w-[70px] left-4 transform mt-8 -translate-y-1/4 z-10">
         <img
           src={LeftDots}

@@ -40,20 +40,20 @@ export default function WhyChooseUs({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-12 items-start">
         {/* Left Image Section with 2-left + 1-middle-right */}
-        <div className={`relative flex w-1/2 lg:w-[40%] mt-[30px]`}>
+        <div className={`relative flex md:flex-row flex-col w-full md:w-[40%] mt-[30px]`}>
           {/* Column with 2 stacked images (left side) */}
           <div className="flex flex-col gap-6">
             <img
               src={leftImage}
               alt="Top Left"
-              className={`rounded-[10px] lg:w-${leftimgWidth} lg:h-${leftimgHeight} object-cover ${MarginTop}`}
+              className={`rounded-[10px] w-full object-cover ${MarginTop}`}
             />
             <img
               src={leftImage2}
               alt="Bottom Left"
-              className={`rounded-[10px] lg:w-${leftimg2Width} lg:h-${leftimg2Height} object-cover ${MarginBottom}`}
+              className={`rounded-[10px] w-full  object-cover ${MarginBottom}`}
             />
           </div>
 
@@ -66,14 +66,14 @@ export default function WhyChooseUs({
     w-${rightimgWidth} 
     h-${rightimgHeight} 
     object-cover 
-    ml-[100px] 
-    sm:ml-[100px] 
-    lg:ml-0 
-    lg:absolute 
-    lg:left-[55%] 
-    lg:top-1/2 
-    lg:transform 
-    lg:-translate-y-1/2
+    md:ml-[5px] 
+    md:mt-0
+    mt-20
+    md:lg:absolute 
+    md:left-[55%] 
+    md:top-1/2 
+    md:transform 
+    md:-translate-y-1/2
   `}
           />
         </div>

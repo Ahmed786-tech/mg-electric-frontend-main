@@ -1,6 +1,7 @@
 // import img1 from "/images/IMG_0207.jpg";
 // import img2 from "/images/IMG_2502.jpg";
 // import img3 from "/images/IMG_0217.jpg";
+import surveyImage3 from '@/assets/images/surveyImage3.png'
 export const teamData = [
   {
     id: 1,
@@ -19,7 +20,7 @@ export const teamData = [
   {
     id: 3,
     name: "Emergency lighting & Power Solutions",
-    image: "/images/IMG_0217.jpg",
+    image: surveyImage3,
     description:
       "we offer reliable back up power solutions and emergency lighting backup power systems to keep your facility running during power outages.",
   },

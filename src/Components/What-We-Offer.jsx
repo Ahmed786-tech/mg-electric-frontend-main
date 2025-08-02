@@ -33,7 +33,7 @@ export default function WeOffer({
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Images */}
         <div
-          className={`flex flex-col sm:flex-row gap-4 w-full lg:w-[40%] mt-[130px] sm:mt-${margintop} lg:mt-${margintop}`}
+          className={`flex flex-col sm:flex-row gap-4 w-full lg:w-[40%] md:mt-[130px]`}
         >
           {/* Left Image */}
           <img

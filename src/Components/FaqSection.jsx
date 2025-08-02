@@ -121,11 +121,11 @@ export default function FAQSection({ faqData }) {
           {/* Left side - Lightbulb image */}
           <div className="flex justify-center lg:justify-start w-full lg:w-80">
             <div
-              className="relative w-64 lg:w-80 transition-all duration-300 ease-in-out"
-              style={{
-                height: imageHeight > 0 ? `${imageHeight}px` : "400px",
-                minHeight: "300px",
-              }}
+              className="md:h-[900px] relative w-full md:w-80 transition-all duration-300 ease-in-out"
+              // style={{
+              //   height: imageHeight > 0 ? `${imageHeight}px` : "400px",
+              //   minHeight: "300px",
+              // }}
             >
               <img
                 src={Bulb}

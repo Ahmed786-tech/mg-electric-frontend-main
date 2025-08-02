@@ -7,7 +7,7 @@ export function PhoneContact() {
         flex items-center justify-center gap-4 self-center mt-7
         w-[256px] h-[73px] max-w-full 
         p-2.5 border-2 border-sky-500 border-solid rounded-[50px]
-        max-sm:w-full max-sm:h-auto max-sm:flex-col max-sm:gap-2
+        max-sm:w-full max-sm:h-auto  max-sm:gap-2
       "
     >
       <img

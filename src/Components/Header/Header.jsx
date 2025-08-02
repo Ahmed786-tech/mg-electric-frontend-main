@@ -40,7 +40,7 @@ const Header = () => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-right: 1rem;
+            
           }
 
           .nav {
@@ -135,7 +135,6 @@ const Header = () => {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 10px;
           }
           
           .hamburger div {
@@ -281,80 +280,75 @@ const Header = () => {
         }}
       >
         <header className="header z-30">
-          <div className="logo-container">
-            <img
-              onClick={goToHome}
-              src={Logo}
-              alt="Logo"
-              className="logo w-[188px] h-[109px] cursor-pointer"
-            />
-          </div>
+          <div className=" flex items-center justify-between w-full">
+            <div className="">
+              <img
+                onClick={goToHome}
+                src={Logo}
+                alt="Logo"
+                className="logo h-[109px] cursor-pointer"
+              />
+            </div>
 
-          <div className="hamburger" onClick={toggleDrawer}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-
-          <nav className="nav">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/about" className="nav-link">
-                  About us
-                </Link>
-              </li>
-              <li
-                className="nav-item"
-                onMouseEnter={() => {
-                  if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-                  setIsDropdownOpen(true);
-                }}
-                onMouseLeave={() => {
-                  closeTimeoutRef.current = setTimeout(() => {
-                    setIsDropdownOpen(false);
-                  }, 200); // Adjust delay here if needed
-                }}
-              >
-                <Link to="/services" className="nav-link" onClick={() => setIsDropdownOpen(false)}>
-                  Services
-                </Link>
-                {isDropdownOpen && (
-                  <ul className="dropdown z-50"
-                    onMouseEnter={() => {
-                      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-                    }}
-                    onMouseLeave={() => {
-                      closeTimeoutRef.current = setTimeout(() => {
-                        setIsDropdownOpen(false);
-                      }, 200);
-                    }}>
-                    <li>
-                      <Link
-                        to="/services/electrical-installations"
-                        className="dropdown-item"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        Electrical Installations & Upgrades
-                      </Link>
-                    </li>
-                    {/* <li>
+            <nav className="nav">
+              <ul className="nav-list">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/about" className="nav-link">
+                    About us
+                  </Link>
+                </li>
+                <li
+                  className="nav-item"
+                  onMouseEnter={() => {
+                    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+                    setIsDropdownOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    closeTimeoutRef.current = setTimeout(() => {
+                      setIsDropdownOpen(false);
+                    }, 200); // Adjust delay here if needed
+                  }}
+                >
+                  <Link to="/services" className="nav-link" onClick={() => setIsDropdownOpen(false)}>
+                    Services
+                  </Link>
+                  {isDropdownOpen && (
+                    <ul className="dropdown z-50"
+                      onMouseEnter={() => {
+                        if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+                      }}
+                      onMouseLeave={() => {
+                        closeTimeoutRef.current = setTimeout(() => {
+                          setIsDropdownOpen(false);
+                        }, 200);
+                      }}>
+                      <li>
+                        <Link
+                          to="/services/electrical-installations"
+                          className="dropdown-item"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Electrical Installations & Upgrades
+                        </Link>
+                      </li>
+                      {/* <li>
                       <Link to="/services/web" className="dropdown-item">Electrical Testing & Inspections</Link>
                     </li> */}
-                    <li>
-                      <Link
-                        to="/services/emergency-lighting"
-                        className="dropdown-item"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        Emergency Lighting & Power Solutions
-                      </Link>
-                    </li>
-                    {/* <li>
+                      <li>
+                        <Link
+                          to="/services/emergency-lighting"
+                          className="dropdown-item"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Emergency Lighting & Power Solutions
+                        </Link>
+                      </li>
+                      {/* <li>
                       <Link to="/services/web" className="dropdown-item">Backup Power Systems</Link>
                     </li>
                     <li>
@@ -366,108 +360,106 @@ const Header = () => {
                     <li>
                       <Link to="/services/web" className="dropdown-item">Maintenance & Reactive Repairs</Link>
                     </li> */}
+                    </ul>
+                  )}
+                </li>
+                <li className="nav-item">
+                  <Link to="/portfolio" className="nav-link">
+                    Recent Projects
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <Link to="/contact">
+              <button className="contact-button w-[187px] h-[61px]">
+                <span className="contact-button-text">Contact Us</span>
+              </button>
+            </Link>
+
+            <div className="hamburger" onClick={toggleDrawer}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </header>
+        <div
+          className={`drawer-overlay ${isDrawerOpen ? "open" : ""}`}
+          onClick={toggleDrawer}
+        ></div>
+        <div className={`drawer ${isDrawerOpen ? "open" : ""}`}>
+          <button className="drawer-close" onClick={toggleDrawer}>
+            ×
+          </button>
+          <nav>
+            <ul className="nav-list">
+              <li className="nav-item">
+                <Link to="/" className="nav-link" onClick={toggleDrawer}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link" onClick={toggleDrawer}>
+                  About us
+                </Link>
+              </li>
+              <li
+                className="nav-item"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <div className="nav-link-with-arrow">
+                  <Link
+                    to="/services"
+                    className="nav-link"
+                    onClick={toggleDrawer}
+                  >
+                    Services
+                  </Link>
+                  <span className={`arrow ${isDropdownOpen ? "open" : ""}`}>
+                    ▼
+                  </span>
+                </div>
+                {isDropdownOpen && (
+                  <ul className="dropdown">
+                    <li>
+                      <Link
+                        to="/services/electrical-installations"
+                        className="dropdown-item text-wrap"
+                        onClick={toggleDrawer}
+                      >
+                        Electrical Installations & Upgrades
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/services/emergency-lighting"
+                        className="dropdown-item text-wrap"
+                        onClick={toggleDrawer}
+                      >
+                        Emergency Lighting & Power Solutions
+                      </Link>
+                    </li>
                   </ul>
                 )}
               </li>
               <li className="nav-item">
-                <Link to="/portfolio" className="nav-link">
+                <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>
                   Recent Projects
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/contact" className="nav-link">
-                  Contact Us
                 </Link>
               </li>
             </ul>
           </nav>
-
-          <Link to="/contact">
-            <button className="contact-button w-[187px] h-[61px]">
+          <Link to="/contact" onClick={toggleDrawer}>
+            <button className="contact-button">
               <span className="contact-button-text">Contact Us</span>
             </button>
           </Link>
-        </header>
+        </div>
       </div>
 
-      <div
-        className={`drawer-overlay ${isDrawerOpen ? "open" : ""}`}
-        onClick={toggleDrawer}
-      ></div>
-      <div className={`drawer ${isDrawerOpen ? "open" : ""}`}>
-        <button className="drawer-close" onClick={toggleDrawer}>
-          ×
-        </button>
-        <nav>
-          <ul className="nav-list">
-            <li className="nav-item">
-              <Link to="/" className="nav-link" onClick={toggleDrawer}>
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
-                About us
-              </Link>
-            </li>
-            <li
-              className="nav-item"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <div className="nav-link-with-arrow">
-                <Link
-                  to="/services"
-                  className="nav-link"
-                  onClick={toggleDrawer}
-                >
-                  Services
-                </Link>
-                <span className={`arrow ${isDropdownOpen ? "open" : ""}`}>
-                  ▼
-                </span>
-              </div>
-              {isDropdownOpen && (
-                <ul className="dropdown">
-                  <li>
-                    <Link
-                      to="/services/electrical-installations"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Electrical Installations & Upgrades
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/emergency-lighting"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Emergency Lighting & Power Solutions
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li className="nav-item">
-              <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>
-                Recent Projects
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contact" className="nav-link" onClick={toggleDrawer}>
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <Link to="/contact" onClick={toggleDrawer}>
-          <button className="contact-button">
-            <span className="contact-button-text">Contact Us</span>
-          </button>
-        </Link>
-      </div>
+
     </>
   );
 };

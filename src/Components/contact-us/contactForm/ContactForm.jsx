@@ -27,7 +27,7 @@ export function ContactForm() {
 
   return (
     <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12"
+      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 md:px-0 px-4"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="flex flex-col justify-center items-center px-4 md:px-9 py-7 bg-white rounded-[20px] w-full max-w-[1122px] shadow-sm mx-auto mt-10">

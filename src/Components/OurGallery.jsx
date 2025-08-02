@@ -1,10 +1,10 @@
 "use client";
-import Image1 from "../assets/images/Img28.png";
-import Image2 from "../assets/images/Img29.png";
-import Image3 from "../assets/images/Img30.png";
-import Image4 from "../assets/images/Img31.png";
-import Image5 from "../assets/images/Img32.png";
-import Image6 from "../assets/images/Img33.png";
+import Image1 from "/images/IMG_0207.jpg";
+import Image2 from "/images/IMG_0037.jpg";
+import Image3 from "/images/IMG_0217.jpg";
+import Image4 from "/images/IMG_2502.JPG";
+import Image5 from "/images/IMG_0584.jpg";
+import Image6 from "/images/IMG_0364.jpg";
 import ViewMoreButton from "./ServicesCarousel/Button";
 import isolationMode2 from "@/assets/images/isolationVector2.png";
 

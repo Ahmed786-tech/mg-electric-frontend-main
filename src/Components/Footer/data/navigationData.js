@@ -9,11 +9,6 @@ export const navigationLinks = [
 ];
 
 export const servicesLinks = [
-  { title: "Rewires", href: "#" },
-  { title: "Fault Finding", href: "#" },
-  { title: "Periodic Testing", href: "#" },
-  { title: "Lighting", href: "#" },
-  { title: "Contact Us", href: "#" },
-  { title: "Installation & Repairs", href: "#" },
-  { title: "Electrical Services", href: "#" },
+  { title: "Electrical Installation & Upgrades", href: "services/electrical-installations" },
+  { title: "Emergency Lighting & Power Solution", href: "services/emergency-lighting" },
 ];

@@ -6,7 +6,6 @@ import CityScape from "../assets/images/Cityimg.png";
 import bg1 from "../assets/images/HomeHeroFrame.png";
 import LeftDots from "../assets/images/Leftdots.png";
 import RightDots from "../assets/images/RightDots.png";
-
 import IsolationMode from "../assets/images/Isolation_Mode_Left.png";
 
 export default function ConsultationSection() {
@@ -23,73 +22,51 @@ export default function ConsultationSection() {
   };
 
   return (
-    <section className="bg-cover bg-center w-full pt-20 md:pt-28 pb-16 md:pb-20 relative z-10 overflow-hidden">
-      <div className=" absolute w-[70px] right-4 top-[370px] z-10">
-        <img
-          src={RightDots}
-          alt="Decorative oval"
-          style={{
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-        />
-      </div>
-      <div className=" absolute w-[70px] left-4 transform  -translate-y-1/4 z-10">
-        <img
-          src={LeftDots}
-          alt="Decorative oval"
-          style={{
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-        />
-      </div>
+    <section className="w-full pt-20 pb-16 md:pb-20 relative z-10 overflow-hidden bg-cover bg-center">
+      {/* Decorations */}
+      <img src={RightDots} className="absolute w-[70px] right-4 top-[370px] z-10" alt="Right Dots" />
+      <img src={LeftDots} className="absolute w-[70px] left-4 top-[20%] z-10" alt="Left Dots" />
+      <img src={IsolationMode} className="hidden md:block absolute left-0 top-[5%] z-10" alt="Left Decoration" />
 
-      <div className="hidden md:block absolute left-0 transform mt-4 -translate-y-1/5 z-10">
-        <img
-          src={IsolationMode}
-          alt="Decorative oval"
-          style={{
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-        />
-      </div>
-      {/* Left Image - Absolute */}
-      <div className=" absolute top-0 left-0 w-1/2 h-full z-0">
-        <div
-          className="absolute hidden md:block top-0 left-0 w-full h-full z-[-1]"
-          style={{
-            backgroundImage: `url(${bg1})`,
-            backgroundSize: "contain",
-            backgroundPosition: "top",
-            backgroundRepeat: "no-repeat",
-            opacity: 0.2, // Adjust as needed
-          }}
-        ></div>
-        <img
-          src={CityScape}
-          alt="Cityscape"
-          className="w-[687px] h-[714px] object-cover rounded-b-[50px] mt-[222px] opacity-100"
-        />
-      </div>
+      {/* Layout */}
+      <div className="flex flex-col-reverse md:flex-row items-end md:items-end gap-8 md:px-0 px-4">
+        {/* Left Image */}
+        <div className="flex-shrink-0 w-full md:w-[50%]">
+          <div className="relative w-full">
+            {/* Background overlay */}
+            <div
+              className="absolute hidden md:block top-0 left-0 w-full h-full z-[-1]"
+              style={{
+                backgroundImage: `url(${bg1})`,
+                backgroundSize: "contain",
+                backgroundPosition: "top",
+                backgroundRepeat: "no-repeat",
+                opacity: 0.2,
+              }}
+            ></div>
+            <img
+              src={CityScape}
+              alt="Cityscape"
+              className="w-full h-auto max-h-[714px] object-cover rounded-b-[50px]"
+              style={{ objectPosition: "left" }}
+            />
+          </div>
+        </div>
 
-      {/* Right Content */}
-      <div className="relative z-10 px-4 md:px-8 lg:px-16 flex justify-center md:ml-[45%]">
-        <div className="max-w-[700px] w-full space-y-6">
+        {/* Right Content */}
+        <div className="w-full md:w-[50%] max-w-[700px] md:pr-12 pr-0">
           {/* Heading */}
           <div className="text-white mb-6">
-            <h2 className="text-[24px] sm:text-[26px] md:text-[30px] lg:text-[32px] font-andika font-bold leading-relaxed lg:w-[640px]">
-              Empowering Healthcare And Commercial Facilities With Reliable
-              Electrical Solutions
+            <h2 className=" lg:text-[26px] text-[26px] font-andika font-bold leading-relaxed">
+              Empowering Healthcare And Commercial Facilities With Reliable Electrical Solutions
             </h2>
-            <p className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] font-normal font-andika mt-4 lg:w-[550px]">
+            <p className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[20px] text-gray-300 font-normal font-andika mt-4">
               Safety, Compliance, And Optimal Performance, Guaranteed
             </p>
           </div>
 
-          {/* Form Container */}
-          <div className="bg-white text-[#06142F] rounded-2xl px-4 sm:px-6 md:px-8 pt-4 pb-9 w-full lg:w-[650px]" style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}>
+          {/* Form */}
+          <div className="bg-white text-[#06142F] rounded-2xl px-4 sm:px-6 md:px-8 pt-4 pb-9 w-full" style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}>
             <p className="text-[18px] md:text-[20px] text-[#01B8FF] font-normal font-andika">
               Consultation
             </p>

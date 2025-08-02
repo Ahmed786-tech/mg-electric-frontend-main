@@ -64,21 +64,21 @@ export default function AboutUsSection({
             <img
               src={leftImage}
               alt="Top Left"
-              className={`rounded-[10px] w-${leftimgWidth} h-${leftimgHeight} object-cover ${MarginTop}`}
+              className={`rounded-[10px]  object-cover ${MarginTop}`}
             />
             <img
               src={leftImage2}
               alt="Bottom Left"
-              className={`rounded-[10px] w-${leftimg2Width} h-${leftimg2Height} object-cover ${MarginBottom}`}
+              className={`rounded-[10px]  object-cover ${MarginBottom}`}
             />
           </div>
 
           {/* Right column with single image centered vertically */}
-          <div className="w-full lg:w-1/2 flex items-center justify-center">
+          <div className="w-full lg:w-1/2 md:flex md:items-center md:justify-center md:mt-0 mt-16">
             <img
               src={rightImage}
               alt="Right Image"
-              className={`rounded-[10px] w-${rightimgWidth} h-${rightimgHeight} object-cover`}
+              className={`rounded-[10px] object-cover w-full`}
             />
           </div>
         </div>

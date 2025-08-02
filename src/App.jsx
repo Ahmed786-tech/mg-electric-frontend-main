@@ -18,18 +18,18 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/services" element={<ServicesOverview />}>
-          {/* <Route path="web" element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path="about" element={<AboutUs />} />
+          <Route path="services" element={<ServicesOverview />}>
+            {/* <Route path="web" element={<Home />} />
           <Route path="mobile" element={<Home />} />
           <Route path="consulting" element={<Home />} /> */}
-        </Route>
-        <Route path="/services/electrical-installations" element={<ElectricalInstallation />} />
-        <Route path="/services/emergency-lighting" element={<EmergencyLighting />} />
-        <Route path="/portfolio" element={<Gallery />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/contact" element={<ContactUs />} />
+          </Route>
+          <Route path="services/electrical-installations" element={<ElectricalInstallation />} />
+          <Route path="services/emergency-lighting" element={<EmergencyLighting />} />
+          <Route path="portfolio" element={<Gallery />} />
+          <Route path="testimonials" element={<Testimonials />} />
+          <Route path="contact" element={<ContactUs />} />
         </Route>
       </Routes>
     </div>

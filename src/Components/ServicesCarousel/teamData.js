@@ -18,7 +18,7 @@ export const teamData = [
   },
   {
     id: 3,
-    name: "Backup power solutions and emergency lighting",
+    name: "Emergency lighting & Power Solutions",
     image: "/images/IMG_0217.jpg",
     description:
       "we offer reliable back up power solutions and emergency lighting backup power systems to keep your facility running during power outages.",

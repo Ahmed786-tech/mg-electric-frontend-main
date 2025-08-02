@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Logo from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const closeTimeoutRef = useRef(null);
   const navigate = useNavigate();
 
   const toggleDrawer = () => {
@@ -279,7 +280,7 @@ const Header = () => {
           backgroundSize: "200px",
         }}
       >
-        <header className="header">
+        <header className="header z-30">
           <div className="logo-container">
             <img
               onClick={goToHome}
@@ -298,24 +299,45 @@ const Header = () => {
           <nav className="nav">
             <ul className="nav-list">
               <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/about" className="nav-link">
                   About us
                 </Link>
               </li>
               <li
                 className="nav-item"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
+                onMouseEnter={() => {
+                  if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+                  setIsDropdownOpen(true);
+                }}
+                onMouseLeave={() => {
+                  closeTimeoutRef.current = setTimeout(() => {
+                    setIsDropdownOpen(false);
+                  }, 200); // Adjust delay here if needed
+                }}
               >
-                <Link to="/services" className="nav-link">
-                  Our services
+                <Link to="/services" className="nav-link" onClick={() => setIsDropdownOpen(false)}>
+                  Services
                 </Link>
                 {isDropdownOpen && (
-                  <ul className="dropdown z-50">
+                  <ul className="dropdown z-50"
+                    onMouseEnter={() => {
+                      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+                    }}
+                    onMouseLeave={() => {
+                      closeTimeoutRef.current = setTimeout(() => {
+                        setIsDropdownOpen(false);
+                      }, 200);
+                    }}>
                     <li>
                       <Link
                         to="/services/electrical-installations"
                         className="dropdown-item"
+                        onClick={() => setIsDropdownOpen(false)}
                       >
                         Electrical Installations & Upgrades
                       </Link>
@@ -327,6 +349,7 @@ const Header = () => {
                       <Link
                         to="/services/emergency-lighting"
                         className="dropdown-item"
+                        onClick={() => setIsDropdownOpen(false)}
                       >
                         Emergency Lighting & Power Solutions
                       </Link>
@@ -349,11 +372,6 @@ const Header = () => {
               <li className="nav-item">
                 <Link to="/portfolio" className="nav-link">
                   Recent Projects
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/team" className="nav-link">
-                  Meet the Team
                 </Link>
               </li>
               <li className="nav-item">
@@ -383,13 +401,13 @@ const Header = () => {
         <nav>
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
-                About us
+              <Link to="/" className="nav-link" onClick={toggleDrawer}>
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className="nav-link" onClick={toggleDrawer}>
-                Our services
+              <Link to="/about" className="nav-link" onClick={toggleDrawer}>
+                About us
               </Link>
             </li>
             <li
@@ -403,7 +421,7 @@ const Header = () => {
                   className="nav-link"
                   onClick={toggleDrawer}
                 >
-                  Our services
+                  Services
                 </Link>
                 <span className={`arrow ${isDropdownOpen ? "open" : ""}`}>
                   ▼
@@ -429,53 +447,12 @@ const Header = () => {
                       Emergency Lighting & Power Solutions
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/services/backup-power"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Backup Power Systems
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/fire-alarms"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Fire Alarms & Safety Systems
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/data-cabling"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Data Cabling & Networking
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/services/maintenance"
-                      className="dropdown-item"
-                      onClick={toggleDrawer}
-                    >
-                      Maintenance & Reactive Repairs
-                    </Link>
-                  </li>
                 </ul>
               )}
             </li>
             <li className="nav-item">
               <Link to="/portfolio" className="nav-link" onClick={toggleDrawer}>
                 Recent Projects
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/team" className="nav-link" onClick={toggleDrawer}>
-                Meet the Team
               </Link>
             </li>
             <li className="nav-item">

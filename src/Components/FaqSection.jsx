@@ -111,7 +111,7 @@ export default function FAQSection({ faqData }) {
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-[#01B8FF] font-andika text-lg mb-2">FAQs</p>
-          <h2 className="text-white font-andika text-4xl md:text-5xl font-bold">
+          <h2 className="text-white font-andika text-2xl md:text-5xl font-bold">
             Electrical Installation & Upgrades FAQs
           </h2>
         </div>
@@ -121,7 +121,7 @@ export default function FAQSection({ faqData }) {
           {/* Left side - Lightbulb image */}
           <div className="flex justify-center lg:justify-start w-full lg:w-80">
             <div
-              className="md:h-[900px] relative w-full md:w-80 transition-all duration-300 ease-in-out"
+              className="h-[300px] md:h-[680px] relative w-full md:w-80 transition-all duration-300 ease-in-out"
               // style={{
               //   height: imageHeight > 0 ? `${imageHeight}px` : "400px",
               //   minHeight: "300px",
@@ -130,7 +130,7 @@ export default function FAQSection({ faqData }) {
               <img
                 src={Bulb}
                 alt="Lightbulb with question mark"
-                className="object-contain"
+                className=" md:h-[680px] h-[300px] w-full object-center"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function FAQSection({ faqData }) {
                     }}
                     className="flex-shrink-0 w-14 md:w-20 bg-white rounded-2xl flex items-center justify-center"
                   >
-                    <span className="text-[#003862] text-5xl font-bold">
+                    <span className="text-[#003862] md:text-5xl text-2xl font-bold">
                       {faq.id}
                     </span>
                   </div>
@@ -163,7 +163,7 @@ export default function FAQSection({ faqData }) {
                     >
                       <div className="flex items-center justify-between h-full">
                         <h3
-                          className={`font-lato text-xl font-semibold pr-4 ${
+                          className={`font-lato md:text-xl text-sm font-semibold pr-4 ${
                             faq.isOpen ? "text-[#01B8FF]" : "text-[#003862]"
                           }`}
                         >

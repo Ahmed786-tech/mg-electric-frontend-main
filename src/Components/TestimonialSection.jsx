@@ -78,9 +78,9 @@ export default function Component() {
         </div>
 
         {/* Mobile/Tablet view - carousel */}
-        <div className="lg:hidden">
+        <div className="lg:hidden z-10">
           <div className="relative">
-            <div className="overflow-hidden">
+            <div className="">
               <div
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -98,7 +98,7 @@ export default function Component() {
                       </div>
                       {/* Quote SVG that cuts the bottom line */}
                       <svg
-                        className="absolute -bottom-4 left-8 w-8 h-8 text-cyan-400/60"
+                        className="absolute -bottom-3 left-8 w-8 h-8 text-cyan-400/60"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >

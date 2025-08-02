@@ -8,7 +8,7 @@ export const teamData = [
     name: "Electrical Installations & Upgrades",
     image: "/images/IMG_0207.jpg",
     description:
-      "From new installations to upgrades, we provide comprehensive healthcare & commercial electrical solutions.",
+      "From new installations to upgrades,  we provide comprehensive electrical solutions.",
   },
   {
     id: 2,
@@ -22,6 +22,6 @@ export const teamData = [
     name: "Emergency lighting & Power Solutions",
     image: surveyImage3,
     description:
-      "we offer reliable back up power solutions and emergency lighting backup power systems to keep your facility running during power outages.",
+      "We offer reliable emergency lighting and backup power systems to keep your facility running during power outages.",
   },
 ];

@@ -43,7 +43,7 @@ export default function ServicesSection() {
             },
             {
               image: surveyImage3,
-              title: "Backup Power & Emergency Lighting Solutions",
+              title: "Emergency Lighting & Power Solutions",
               desc: "We offer reliable emergency lighting and backup power systems to keep your facility running during power outages.",
             },
           ].map((item, idx) => (

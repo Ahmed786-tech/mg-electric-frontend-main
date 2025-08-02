@@ -1,11 +1,9 @@
 export const navigationLinks = [
-  { title: "About Us", href: "#" },
-  { title: "What We Do", href: "#" },
-  { title: "Testimonials", href: "#" },
-  { title: "Recent Projects", href: "#" },
-  { title: "Contact Us", href: "#" },
-  { title: "Privacy Policy", href: "#" },
-  { title: "FAQ", href: "#" },
+  { title: "Home", href: "/" },
+  { title: "About us", href: "/about" },
+  { title: "Services", href: "/services" },
+  { title: "Recent Projects", href: "/portfolio" },
+  { title: "Contact Us", href: "/contact" },
 ];
 
 export const servicesLinks = [

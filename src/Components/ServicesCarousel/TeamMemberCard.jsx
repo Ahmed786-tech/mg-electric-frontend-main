@@ -17,7 +17,7 @@ function TeamMemberCard({ image, name, description }) {
           <div className="relative text-[22px] font-bold px-6 text-[#001A33] font-andika z-10 text-center max-md:text-[24px] max-sm:text-[20px]">
             {name}
           </div>
-          <div className="relative  px-3 mt-3 text-[16px] font-medium leading-1 text-center text-[#848484] font-lato z-10 max-md:text-[16px] max-sm:text-[14px] flex-1">
+          <div className="relative  px-3 mt-3 text-[17px] font-medium leading-1 text-center text-[#848484] font-lato z-10 max-md:text-[16px] max-sm:text-[14px] flex-1">
             {description}
           </div>
           <div className="flex relative justify-center items-center mt-4 w-full z-10">

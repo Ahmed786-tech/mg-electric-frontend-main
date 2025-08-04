@@ -1,74 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import TeamMemberCard from "./TeamMemberCard";
-import CarouselControls from "./CarouselControls";
 import RightDots from "@/assets/images/RightDots.png";
+import leftArrow from "@/assets/svgs/Arrow 1.svg";
+import rightArrow from "@/assets/svgs/Arrow 2.svg";
 
 import { teamData } from "./teamData";
 
 function TeamCarousel() {
+  const [itemsToShow, setItemsToShow] = useState(3);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  const containerRef = useRef(null);
+  const cardWidthRef = useRef(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setSlidesToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setSlidesToShow(2);
-      } else {
-        setSlidesToShow(3);
-      }
+    const updateItems = () => {
+      const width = window.innerWidth;
+      if (width < 640) setItemsToShow(1);
+      else if (width < 1024) setItemsToShow(2);
+      else setItemsToShow(3);
+      setCurrentIndex(0);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    updateItems();
+    window.addEventListener("resize", updateItems);
+    return () => window.removeEventListener("resize", updateItems);
   }, []);
 
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  };
-
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const paginate = (newDirection) => {
-    setDirection(newDirection);
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex + newDirection + teamData.length) % teamData.length
-    );
-  };
-
-  const getVisibleSlides = () => {
-    const slides = [];
-    for (let i = 0; i < slidesToShow; i++) {
-      const slideIndex = (currentIndex + i) % teamData.length;
-      slides.push(slideIndex);
+  useEffect(() => {
+    const firstCard = containerRef.current?.querySelector(".team-card");
+    if (firstCard) {
+      const style = getComputedStyle(firstCard);
+      const marginRight = parseInt(style.marginRight || "0");
+      cardWidthRef.current = firstCard.offsetWidth + marginRight;
     }
-    return slides;
+  }, [itemsToShow]);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        left: currentIndex * cardWidthRef.current,
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
+
+  const maxIndex = teamData.length - itemsToShow;
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const dotsCount = teamData.length - itemsToShow + 1;
 
   return (
-    <section className="w-full bg-cover bg-center bg-no-repeat ">
-      <div className=" absolute w-[70px] right-4 top-[370px] z-10">
+    <section className="w-full bg-cover bg-center bg-no-repeat">
+      <div className="absolute w-[70px] right-4 top-[370px] z-10">
         <img
           src={RightDots}
           alt="Decorative oval"
@@ -93,52 +88,87 @@ function TeamCarousel() {
         </p>
 
         <div className="relative w-full flex flex-col items-center">
-          <div className="my-7">
-            <CarouselControls
-              onPrevious={() => paginate(-1)}
-              onNext={() => paginate(1)}
-              currentIndex={currentIndex}
-              totalSlides={teamData.length}
-            />
+          {/* Dots - positioned on upper side */}
+          <div className="flex items-center justify-center mt-8 mb-4 gap-4">
+            {Array.from({ length: dotsCount }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentIndex
+                    ? "bg-cyan-400"
+                    : "bg-slate-600 hover:bg-slate-500"
+                }`}
+              />
+            ))}
           </div>
 
-          {/* Slider section */}
-          <div className="h-[400px] w-full flex items-center justify-center">
-            <AnimatePresence initial={false} custom={direction}>
-              <div className="flex gap-4 justify-center px-2 sm:px-4 w-full">
-                {getVisibleSlides().map((slideIndex) => (
-                  <motion.div
-                    key={slideIndex}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
-                    }}
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={1}
-                    onDragEnd={(e, { offset, velocity }) => {
-                      const swipe = swipePower(offset.x, velocity.x);
-                      if (swipe < -swipeConfidenceThreshold) {
-                        paginate(1);
-                      } else if (swipe > swipeConfidenceThreshold) {
-                        paginate(-1);
-                      }
-                    }}
-                    className="w-full sm:w-1/2 lg:w-1/3 flex justify-center"
-                  >
-                    <TeamMemberCard {...teamData[slideIndex]} />
-                  </motion.div>
-                ))}
-              </div>
-            </AnimatePresence>
+          {/* Carousel */}
+          <div className="overflow-hidden relative h-[400px] w-full">
+            <div
+              ref={containerRef}
+              className="flex overflow-x-auto no-scrollbar scroll-smooth h-full"
+              style={{
+                gap: "16px",
+                scrollSnapType: "x mandatory",
+                scrollPaddingLeft: 0,
+              }}
+            >
+              {teamData.map((member, index) => (
+                <div
+                  key={index}
+                  className="team-card flex-shrink-0"
+                  style={{
+                    scrollSnapAlign: "start",
+                    width:
+                      itemsToShow === 1
+                        ? "100%"
+                        : itemsToShow === 2
+                        ? "48.5%"
+                        : "32.3%",
+                  }}
+                >
+                  <TeamMemberCard {...member} />
+                </div>
+              ))}
+            </div>
+
+            {/* Prev/Next buttons */}
+            <button
+              onClick={goToPrevious}
+              disabled={currentIndex === 0}
+              className={`p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors absolute top-1/2 -left-6 md:-left-10 -translate-y-1/2 z-10 ${
+                currentIndex === 0 ? "opacity-30 cursor-not-allowed" : ""
+              }`}
+              aria-label="Previous team members"
+            >
+              <img src={leftArrow} alt="left" />
+            </button>
+
+            <button
+              onClick={goToNext}
+              disabled={currentIndex >= maxIndex}
+              className={`p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors absolute top-1/2 -right-6 md:-right-10 -translate-y-1/2 z-10 ${
+                currentIndex >= maxIndex ? "opacity-30 cursor-not-allowed" : ""
+              }`}
+              aria-label="Next team members"
+            >
+              <img src={rightArrow} alt="right" />
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Hide scrollbar cross-browser */}
+      <style jsx>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }

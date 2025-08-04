@@ -108,7 +108,7 @@ export default function Component() {
         <div className="overflow-hidden relative h-[320px]">
           <div
             ref={containerRef}
-            className="flex overflow-x-auto no-scrollbar scroll-smooth"
+            className="flex overflow-x-auto no-scrollbar scroll-smooth h-full"
             style={{
               gap: "14px",
               scrollSnapType: "x mandatory",

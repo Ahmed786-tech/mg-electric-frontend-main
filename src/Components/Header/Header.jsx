@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Logo from "../../assets/svgs/logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -7,8 +7,31 @@ import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const closeTimeoutRef = useRef(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsSticky(scrollTop > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isSticky) {
+      document.body.style.paddingTop = '140px';
+    } else {
+      document.body.style.paddingTop = '0';
+    }
+
+    return () => {
+      document.body.style.paddingTop = '0';
+    };
+  }, [isSticky]);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -129,6 +152,20 @@ const Header = () => {
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: all 0.3s ease;
+          }
+          
+          .header-wrapper.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
           }
           
           .hamburger {
@@ -210,6 +247,11 @@ const Header = () => {
           }
           
           @media (max-width: 768px) {
+            .header-wrapper.sticky {
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+            }
+            
             .header {
               width: 95%;
               height: auto;
@@ -271,9 +313,9 @@ const Header = () => {
         `}
       </style>
       <div
-        className=" header-wrapper font-lato"
+        className={`header-wrapper font-lato ${isSticky ? 'sticky' : ''}`}
         style={{
-          backgroundImage: `url(${IsolationMode1})`,
+          backgroundImage: isSticky ? 'none' : `url(${IsolationMode1})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "right",
           backgroundSize: "200px",

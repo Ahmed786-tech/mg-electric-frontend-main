@@ -121,7 +121,7 @@ export default function FAQSection({ faqData }) {
           {/* Left side - Lightbulb image */}
           <div className="flex justify-center lg:justify-start w-full lg:w-80">
             <div
-              className="h-[300px] md:h-[680px] relative w-full md:w-80 transition-all duration-300 ease-in-out"
+              className=" md:block hidden h-[300px] md:h-[680px] relative w-full md:w-80 transition-all duration-300 ease-in-out"
               // style={{
               //   height: imageHeight > 0 ? `${imageHeight}px` : "400px",
               //   minHeight: "300px",

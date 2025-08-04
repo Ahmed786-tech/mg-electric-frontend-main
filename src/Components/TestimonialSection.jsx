@@ -36,57 +36,62 @@ const testimonials = [
     content:
       "A very professional, competent and reliable service offered by Mark and his team. Friendly and easy to do business with. I would recommend their services",
   },
-
 ];
 
 export default function Component() {
   const [itemsToShow, setItemsToShow] = useState(1);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [paginatedTestimonials, setPaginatedTestimonials] = useState([]);
-  const [direction, setDirection] = useState("next"); // for animation
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const trackRef = useRef();
+  const containerRef = useRef(null);
+  const cardWidthRef = useRef(0);
 
   useEffect(() => {
-    const updateItemsToShow = () => {
+    const updateItems = () => {
       const width = window.innerWidth;
       if (width < 640) setItemsToShow(1);
       else if (width < 1024) setItemsToShow(2);
       else setItemsToShow(3);
+      setCurrentIndex(0);
     };
 
-    updateItemsToShow();
-    window.addEventListener("resize", updateItemsToShow);
-    return () => window.removeEventListener("resize", updateItemsToShow);
+    updateItems();
+    window.addEventListener("resize", updateItems);
+    return () => window.removeEventListener("resize", updateItems);
   }, []);
 
   useEffect(() => {
-    const pages = [];
-    for (let i = 0; i < testimonials.length; i += itemsToShow) {
-      pages.push(testimonials.slice(i, i + itemsToShow));
+    const firstCard = containerRef.current?.querySelector(".testimonial-card");
+    if (firstCard) {
+      const style = getComputedStyle(firstCard);
+      const marginRight = parseInt(style.marginRight || "0");
+      cardWidthRef.current = firstCard.offsetWidth + marginRight;
     }
-    setPaginatedTestimonials(pages);
-    setCurrentPage(0); // Reset on itemsToShow change
   }, [itemsToShow]);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        left: currentIndex * cardWidthRef.current,
+        behavior: "smooth",
+      });
+    }
+  }, [currentIndex]);
+
+  const maxIndex = testimonials.length - itemsToShow;
+
   const goToPrevious = () => {
-    setDirection("prev");
-    setCurrentPage((prev) =>
-      prev === 0 ? paginatedTestimonials.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const goToNext = () => {
-    setDirection("next");
-    setCurrentPage((prev) =>
-      prev === paginatedTestimonials.length - 1 ? 0 : prev + 1
-    );
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const goToSlide = (index) => {
-    setDirection(index > currentPage ? "next" : "prev");
-    setCurrentPage(index);
+    setCurrentIndex(index);
   };
+
+  const dotsCount = testimonials.length - itemsToShow + 1;
 
   return (
     <div className="py-16 px-4 relative mt-10">
@@ -102,17 +107,30 @@ export default function Component() {
         {/* Carousel */}
         <div className="overflow-hidden relative h-[320px]">
           <div
-            ref={trackRef}
-            className="flex absolute top-0 left-0 w-full transition-transform duration-700 ease-in-out"
+            ref={containerRef}
+            className="flex overflow-x-auto no-scrollbar scroll-smooth"
             style={{
-              transform: `translateX(${direction === "next" ? "-100%" : "100%"})`,
-              animation: "slide-in 0.7s ease forwards",
+              gap: "14px",
+              scrollSnapType: "x mandatory",
+              scrollPaddingLeft: 0,
             }}
-            key={currentPage}
           >
-            {paginatedTestimonials[currentPage]?.map((testimonial, index) => (
-              <div key={index} className="flex-1 px-2">
-                <div className="relative bg-slate-800/50 z-10 border border-slate-700 rounded-2xl p-8 backdrop-blur-sm shadow-lg shadow-slate-900/50 h-full">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="testimonial-card flex-shrink-0"
+                style={{
+                  scrollSnapAlign: "start",
+                  height: "270px",
+                  width:
+                    itemsToShow === 1
+                      ? "100%"
+                      : itemsToShow === 2
+                      ? "48.5%"
+                      : "32.3%",
+                }}
+              >
+                <div className="relative bg-slate-800/50 border border-slate-700 rounded-2xl p-8 backdrop-blur-sm shadow-lg shadow-slate-900/50 h-full">
                   <div className="mb-6">
                     <h3 className="text-[#01B8FF] text-center font-medium text-lg mb-4">
                       {testimonial.name}
@@ -124,54 +142,61 @@ export default function Component() {
                   <img
                     src={qoutes}
                     alt="quote"
-                    className="absolute -bottom-3 left-8 w-8 h-8 opacity-70"
+                    className="absolute -bottom-4 left-8 w-8 h-8 opacity-70"
                   />
                 </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Navigation */}
-        <div className="flex items-center justify-center mt-8 gap-4">
+          {/* Prev/Next buttons */}
           <button
             onClick={goToPrevious}
-            className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors"
+            disabled={currentIndex === 0}
+            className={`p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors absolute top-1/2 -left-6 md:-left-10 -translate-y-1/2 z-10 ${
+              currentIndex === 0 ? "opacity-30 cursor-not-allowed" : ""
+            }`}
+            aria-label="Previous testimonials"
           >
             <img src={leftArrow} alt="left" />
           </button>
 
-          <div className="flex gap-2">
-            {paginatedTestimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${index === currentPage
-                    ? "bg-cyan-400"
-                    : "bg-slate-600 hover:bg-slate-500"
-                  }`}
-              />
-            ))}
-          </div>
-
           <button
             onClick={goToNext}
-            className="p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors"
+            disabled={currentIndex >= maxIndex}
+            className={`p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors absolute top-1/2 -right-6 md:-right-10 -translate-y-1/2 z-10 ${
+              currentIndex >= maxIndex ? "opacity-30 cursor-not-allowed" : ""
+            }`}
+            aria-label="Next testimonials"
           >
             <img src={rightArrow} alt="right" />
           </button>
         </div>
+
+        {/* Dots */}
+        <div className="flex items-center justify-center mt-8 gap-4">
+          {Array.from({ length: dotsCount }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex
+                  ? "bg-cyan-400"
+                  : "bg-slate-600 hover:bg-slate-500"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Animation Styles */}
+      {/* Hide scrollbar cross-browser */}
       <style jsx>{`
-        @keyframes slide-in {
-          from {
-            transform: translateX(${direction === "next" ? "100%" : "-100%"});
-          }
-          to {
-            transform: translateX(0%);
-          }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
     </div>

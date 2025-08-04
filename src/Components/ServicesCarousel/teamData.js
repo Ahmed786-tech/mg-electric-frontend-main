@@ -9,6 +9,7 @@ export const teamData = [
     image: "/images/IMG_0207.jpg",
     description:
       "From new installations to upgrades,  we provide comprehensive electrical solutions.",
+    link: "/services/electrical-installations"
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const teamData = [
     image: "/images/IMG_2502.JPG",
     description:
       "Regular testing and inspections ensure your facility's electrical systems are safe and compliant.",
+    link: "services/electrical-installations"
   },
   {
     id: 3,
@@ -23,5 +25,30 @@ export const teamData = [
     image: surveyImage3,
     description:
       "We offer reliable emergency lighting and backup power systems to keep your facility running during power outages.",
+    link: "services/emergency-lighting"
+  },
+  {
+    id: 4,
+    name: "Electrical Installations and Upgrades",
+    image: "/images/IMG_0207.jpg",
+    description:
+      "From new installations to upgrades,  we provide comprehensive electrical solutions.",
+    link: "/services/electrical-installations"
+  },
+  {
+    id: 5,
+    name: "Electrical Testing & Inspections",
+    image: "/images/IMG_2502.JPG",
+    description:
+      "Regular testing and inspections ensure your facility's electrical systems are safe and compliant.",
+    link: "services/electrical-installations"
+  },
+  {
+    id: 6,
+    name: "Emergency lighting & Power Solutions",
+    image: surveyImage3,
+    description:
+      "We offer reliable emergency lighting and backup power systems to keep your facility running during power outages.",
+    link: "services/emergency-lighting"
   },
 ];

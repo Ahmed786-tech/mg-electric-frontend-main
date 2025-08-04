@@ -1,6 +1,6 @@
 import React from "react";
 import PageTitle from "../Components/PageTitle";
-import HeroImage from "../assets/images/gallery-hero.png";
+import HeroImage from "../assets/images/IMG_0371.jpg";
 import { Banner } from "../Components/gallery-banner/hero/Banner";
 import { ImageGallery } from "../Components/gallery-images/gallery/ImageGallery";
 import aboutRightVecotr from "@/assets/images/aboutRightVector.png";
@@ -13,7 +13,7 @@ function Gallery() {
       <PageTitle
         tag="Gallery"
         title="Our Projects Showcase"
-        subtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+        subtitle="Take a look at some of our recent electrical projects. From large scale commercial lighting projects to smaller residential works, each projects reflects the care, precision, and workmanship that goes into everything we do."
         imageSrc={HeroImage}
         imageAlt="Healthcare and Commercial Electrical Services"
       />

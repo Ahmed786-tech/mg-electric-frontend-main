@@ -96,7 +96,7 @@ export default function FAQSection({ faqData }) {
           location.pathname !== "/services/emergency-lighting"
             ? "mt-[30px]"
             : "mt-[400px]"
-        } absolute w-[70px] right-4 top-[0px] z-10`}
+        } md:block hidden absolute w-[70px] right-4 top-[0px] z-10`}
       >
         <img
           src={RightDots}
@@ -130,7 +130,7 @@ export default function FAQSection({ faqData }) {
               <img
                 src={Bulb}
                 alt="Lightbulb with question mark"
-                className=" md:h-[680px] h-[300px] w-full object-center"
+                className=" md:h-[680px] h-full w-full"
               />
             </div>
           </div>

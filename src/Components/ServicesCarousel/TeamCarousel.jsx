@@ -9,9 +9,18 @@ function TeamCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
+  const [paginatedSlides, setPaginatedSlides] = useState([]);
+
+  const chunkArray = (array, size) => {
+    const chunked = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunked.push(array.slice(i, i + size));
+    }
+    return chunked;
+  };
 
   useEffect(() => {
-    const handleResize = () => {
+    const updateSlidesToShow = () => {
       if (window.innerWidth < 768) {
         setSlidesToShow(1);
       } else if (window.innerWidth < 1024) {
@@ -21,10 +30,25 @@ function TeamCarousel() {
       }
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    updateSlidesToShow();
+    window.addEventListener("resize", updateSlidesToShow);
+    return () => window.removeEventListener("resize", updateSlidesToShow);
   }, []);
+
+  useEffect(() => {
+    const pages = Math.ceil(teamData.length / slidesToShow);
+    const slides = chunkArray(teamData, slidesToShow);
+    setPaginatedSlides(slides);
+
+    // Reset currentIndex if out of bounds or data changes
+    setCurrentIndex((prevIndex) => (prevIndex >= pages ? 0 : prevIndex));
+  }, [slidesToShow]);
+
+  useEffect(() => {
+    console.log("Current index changed:", currentIndex);
+  }, [currentIndex]);
+
+  const totalPages = paginatedSlides.length;
 
   const slideVariants = {
     enter: (direction) => ({
@@ -45,22 +69,25 @@ function TeamCarousel() {
   };
 
   const paginate = (newDirection) => {
-  const newIndex = currentIndex + newDirection * slidesToShow;
+    const newIndex = currentIndex + newDirection;
+    console.log("Paginate clicked. New index:", newIndex);
 
-  // Prevent overflow or underflow based on visible group
-  if (newIndex < 0 || newIndex + slidesToShow > teamData.length) return;
-
-  setDirection(newDirection);
-  setCurrentIndex(newIndex);
-};
-
-  const getVisibleSlides = () => {
-    const slides = [];
-    for (let i = 0; i < slidesToShow; i++) {
-      const slideIndex = (currentIndex + i) % teamData.length;
-      slides.push(slideIndex);
+    if (newIndex < 0) {
+      setDirection(newDirection);
+      setCurrentIndex(totalPages - 1);
+    } else if (newIndex >= totalPages) {
+      setDirection(newDirection);
+      setCurrentIndex(0);
+    } else {
+      setDirection(newDirection);
+      setCurrentIndex(newIndex);
     }
-    return slides;
+  };
+
+  const goToSlide = (pageIndex) => {
+    if (pageIndex === currentIndex) return;
+    setDirection(pageIndex > currentIndex ? 1 : -1);
+    setCurrentIndex(pageIndex);
   };
 
   return (
@@ -80,13 +107,14 @@ function TeamCarousel() {
           Premium electrical services in Surrey
         </h1>
 
-        <div className="relative w-full flex flex-col items-center">
+        <div className="relative w-full flex flex-col items-center z-30">
           <div className="my-7">
             <CarouselControls
               onPrevious={() => paginate(-1)}
               onNext={() => paginate(1)}
               currentIndex={currentIndex}
-              totalSlides={teamData.length}
+              totalSlides={totalPages}
+              goToSlide={goToSlide}
             />
           </div>
 
@@ -94,7 +122,7 @@ function TeamCarousel() {
           <div className="relative w-full overflow-hidden h-[600px] flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
-                key={currentIndex}
+                key={`page-${currentIndex}`}
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
@@ -106,12 +134,13 @@ function TeamCarousel() {
                 }}
                 className="flex gap-4 justify-center px-2 sm:px-4 w-full"
               >
-                {getVisibleSlides().map((slideIndex) => (
+                {/* Safely render only if paginatedSlides[currentIndex] exists */}
+                {paginatedSlides[currentIndex]?.map((slide, idx) => (
                   <div
-                    key={slideIndex}
+                    key={idx}
                     className="w-full sm:w-1/2 lg:w-1/3 flex justify-center"
                   >
-                    <TeamMemberCard {...teamData[slideIndex]} />
+                    <TeamMemberCard {...slide} />
                   </div>
                 ))}
               </motion.div>

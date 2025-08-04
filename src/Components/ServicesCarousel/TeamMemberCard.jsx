@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
-function TeamMemberCard({ image, name, description }) {
+function TeamMemberCard({ image, name, description, link }) {
   return (
     <div className="p-3 rounded-[20px] border border-solid border-zinc-400 max-md:w-full max-sm:grid-cols-1 h-full">
       <div className="flex flex-col pt-3 bg-white rounded-xl w-full h-full">
@@ -21,7 +22,9 @@ function TeamMemberCard({ image, name, description }) {
             {description}
           </div>
           <div className="flex relative justify-center items-center mt-4 w-full z-10">
-            <Button />
+            <Link to={link}>
+              <Button />
+            </Link>
           </div>
         </div>
       </div>

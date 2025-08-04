@@ -149,7 +149,7 @@ export default function ElectricalTesting() {
             Solutions
           </span>
         }
-        subtitle="Emergency lighting and power backup systems & emergency lighting solutions are essential for keeping a commercial property safe and operational during power outages. These systems provide reliable backup power, EG, UPS, IPS to maintain necessary lighting, and support continued operations during disruptions."
+        subtitle="Emergency lighting solutions are essential for keeping a commercial property safe and operational during power outages. These systems provide reliable backup power, EG, UPS, IPS to maintain necessary lighting, and support continued operations during disruptions."
         imageSrc={lightingimg}
         imageAlt="Healthcare and Commercial Electrical Services"
       />

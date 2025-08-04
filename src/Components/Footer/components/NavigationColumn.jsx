@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 export function NavigationColumn({ title, links }) {
   return (
@@ -6,8 +7,8 @@ export function NavigationColumn({ title, links }) {
       <div className="text-[22px] font-bold text-white">{title}</div>
       <div className="flex flex-col self-start mt-9 text-base tracking-wide text-stone-50">
         {links.map((link, index) => (
-          <a
-            href={link.href}
+          <Link
+            to={link.href}
             key={index}
             className={`${
               index > 0 ? "mt-4" : ""
@@ -15,7 +16,7 @@ export function NavigationColumn({ title, links }) {
             tabIndex="0"
           >
             {link.title}
-          </a>
+          </Link>
         ))}
       </div>
     </div>

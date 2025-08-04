@@ -54,11 +54,11 @@ export function AccreditationsSection({ Background }) {
     const updateItemsToShow = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setItemsToShow(1); // Mobile: 1 item
+        setItemsToShow(5); // Mobile: 1 item
       } else if (width < 768) {
-        setItemsToShow(2); // Small tablet: 2 items
+        setItemsToShow(5); // Small tablet: 2 items
       } else if (width < 1024) {
-        setItemsToShow(3); // Tablet: 3 items
+        setItemsToShow(5); // Tablet: 3 items
       } else {
         setItemsToShow(5); // Desktop (md and above): 5 items
       }
@@ -78,12 +78,28 @@ export function AccreditationsSection({ Background }) {
   const maxIndex = Math.max(0, accreditations.length - itemsToShow);
   const totalDots = maxIndex + 1;
 
+  useEffect(() => {
+
+    let animationFrameId;
+    let lastTime = performance.now();
+    const scrollSpeed = 0.003; // Adjust for faster or slower scrolling
+    const animate = (time) => {
+      const deltaTime = time - lastTime;
+      lastTime = time;
+      setCurrentIndex((prevIndex) => prevIndex + scrollSpeed * (deltaTime / 16)); // normalize speed
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+
+  }, []);
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+    setCurrentIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const goToSlide = (index) => {
@@ -92,18 +108,18 @@ export function AccreditationsSection({ Background }) {
 
   return (
     <section className="px-4 mt-8 pt-9 pb-16 relative z-10">
-     
+
 
       <div
         style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}
-        className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 shadow-sm min-h-[328px] max-w-[1300px] w-full mx-auto"
+        className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 rounded-2xl shadow-sm min-h-[328px] max-w-[1300px] w-full mx-auto"
       >
         {/* Background Overlay */}
         <img
           loading="lazy"
           src={bg || "/placeholder.svg"}
           alt="background"
-          className="object-cover absolute inset-0 w-full h-full z-0"
+          className="object-cover absolute inset-0 w-full h-full z-0 rounded-2xl"
         />
 
         {/* Content */}
@@ -125,18 +141,18 @@ export function AccreditationsSection({ Background }) {
               <div
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{
-                  transform: `translateX(-${
-                    currentIndex * (100 / itemsToShow)
-                  }%)`,
+                  transform: `translateX(-${(currentIndex % accreditations.length) * (100 / itemsToShow)}%)`,
+                  width: `${(accreditations.length * 1) * (100 / itemsToShow)}%`,
+                  transition: "transform 0.1s linear", // ensures smooth movement
                 }}
               >
-                {accreditations.map((accreditation, index) => (
+                {[...accreditations, ...accreditations].map((accreditation, index) => (
                   <div
                     key={index}
                     className="flex-shrink-0 px-2"
                     style={{ width: `${100 / itemsToShow}%` }}
                   >
-                    <div className="   flex items-center justify-center">
+                    <div className="flex items-center justify-center">
                       <img
                         loading="lazy"
                         src={accreditation.imageUrl || "/placeholder.svg"}
@@ -156,11 +172,10 @@ export function AccreditationsSection({ Background }) {
                 <button
                   onClick={prevSlide}
                   disabled={currentIndex === 0}
-                  className={`p-2 transition-colors duration-200 ${
-                    currentIndex === 0
-                      ? "text-white/30 cursor-not-allowed"
-                      : "text-white hover:text-[#01B8FF]"
-                  }`}
+                  className={`p-2 transition-colors duration-200 ${currentIndex === 0
+                    ? "text-white/30 cursor-not-allowed"
+                    : "text-white hover:text-[#01B8FF]"
+                    }`}
                   aria-label="Previous slide"
                 >
                   <svg
@@ -177,31 +192,29 @@ export function AccreditationsSection({ Background }) {
                   </svg>
                 </button>
 
-                {/* Dots */}
+                {/* Dots
                 <div className="flex gap-2">
                   {Array.from({ length: totalDots }).map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                        currentIndex === index
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${currentIndex === index
                           ? "bg-[#01B8FF] scale-125"
                           : "bg-white/50 hover:bg-white/70"
-                      }`}
+                        }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
-                </div>
+                </div> */}
 
                 {/* Right Chevron */}
                 <button
                   onClick={nextSlide}
                   disabled={currentIndex === maxIndex}
-                  className={`p-2 transition-colors duration-200 ${
-                    currentIndex === maxIndex
-                      ? "text-white/30 cursor-not-allowed"
-                      : "text-white hover:text-[#01B8FF]"
-                  }`}
+                  className={`p-2 transition-colors duration-200 ${currentIndex === maxIndex
+                    ? "text-white/30 cursor-not-allowed"
+                    : "text-white hover:text-[#01B8FF]"
+                    }`}
                   aria-label="Next slide"
                 >
                   <svg

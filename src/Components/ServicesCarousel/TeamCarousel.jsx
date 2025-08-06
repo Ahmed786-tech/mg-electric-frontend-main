@@ -7,10 +7,13 @@ import bg from "@/assets/images/mainSquaresBg.png";
 function TeamCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
+  const [isMobile, setIsMobile] = useState(false);
 
   const updateSlidesToShow = () => {
-    if (window.innerWidth < 768) setSlidesToShow(1);
-    else if (window.innerWidth < 1024) setSlidesToShow(2);
+    const width = window.innerWidth;
+    setIsMobile(width < 768);
+    if (width < 768) setSlidesToShow(1);
+    else if (width < 1024) setSlidesToShow(2);
     else setSlidesToShow(3);
   };
 
@@ -49,16 +52,19 @@ function TeamCarousel() {
           Premium electrical services in Surrey
         </h1>
 
-        <div className="relative w-full flex flex-col items-center z-30">
-          <div className="my-7 w-full max-w-[900px]">
-            <CarouselControls
-              onPrevious={() => paginate(-1)}
-              onNext={() => paginate(1)}
-              currentIndex={currentIndex}
-              totalSlides={maxIndex + 1}
-              goToSlide={(index) => setCurrentIndex(index)}
-            />
-          </div>
+        <div className="relative w-full flex flex-col items-center z-30 mt-10">
+          {/* Show controls only if there are 4 or more cards, or on mobile */}
+          {(teamData.length >= 4 || isMobile) && (
+            <div className="my-7 w-full max-w-[900px]">
+              <CarouselControls
+                onPrevious={() => paginate(-1)}
+                onNext={() => paginate(1)}
+                currentIndex={currentIndex}
+                totalSlides={maxIndex + 1}
+                goToSlide={(index) => setCurrentIndex(index)}
+              />
+            </div>
+          )}
 
           {/* Carousel viewport */}
           <div
@@ -68,14 +74,18 @@ function TeamCarousel() {
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                width: `${(100 / slidesToShow) * totalSlides}%`,
-                transform: `translateX(-${(100 / totalSlides) * currentIndex}%)`,
+                width: (teamData.length < 4 && !isMobile) ? '100%' : `${(100 / slidesToShow) * totalSlides}%`,
+                transform: (teamData.length < 4 && !isMobile) ? 'none' : `translateX(-${
+                  (100 / totalSlides) * currentIndex
+                }%)`,
+                justifyContent: (teamData.length < 4 && !isMobile) ? 'center' : 'flex-start',
               }}
             >
               {teamData.map((member, idx) => (
                 <div
                   key={idx}
                   className="px-2 box-border w-full flex justify-center"
+                  style={{ maxWidth: '400px' }}
                 >
                   <TeamMemberCard {...member} />
                 </div>

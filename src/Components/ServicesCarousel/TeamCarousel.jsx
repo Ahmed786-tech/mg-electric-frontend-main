@@ -93,7 +93,7 @@ function TeamCarousel() {
             </div>
           </div>
 
-          <button className="border-2 text-[#01B8FF] border-[#01B8FF] rounded-lg py-3 px-20 font-medium mt-10">
+          <button className="border-2 text-[#01B8FF] border-[#01B8FF] rounded-lg py-3 px-20 font-medium ">
             View All Services
           </button>
         </div>

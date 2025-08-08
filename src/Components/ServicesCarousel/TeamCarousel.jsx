@@ -36,7 +36,7 @@ function TeamCarousel() {
   const cardWidthPercent = 100 / slidesToShow;
 
   return (
-    <section className="w-full py-10 md:py-12">
+    <section className="w-full py-0 md:py-12">
       <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1300px] relative">
         <div className="absolute w-[300px] md:w-[700px] opacity-30 z-10">
           <img
@@ -68,8 +68,8 @@ function TeamCarousel() {
 
           {/* Carousel viewport */}
           <div
-            className="relative w-full overflow-hidden"
-            style={{ height: "600px" }}
+            className="relative w-full overflow-hidden md:mb-0 mb-4 md:h-[600px] h-[500px]"
+           
           >
             <div
               className="flex transition-transform duration-500 ease-in-out"

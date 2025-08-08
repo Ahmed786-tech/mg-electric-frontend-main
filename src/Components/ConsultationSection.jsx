@@ -24,8 +24,8 @@ export default function ConsultationSection() {
   return (
     <section className="w-full pt-20 pb-16 md:pb-20 relative z-10 overflow-hidden bg-cover bg-center">
       {/* Decorations */}
-      <img src={RightDots} className="absolute w-[70px] right-4 top-[370px] z-10" alt="Right Dots" />
-      <img src={LeftDots} className="absolute w-[70px] left-4 top-[20%] z-10" alt="Left Dots" />
+      <img src={RightDots} className="absolute w-[70px] right-0 md:top-[370px] top-[1100px] z-10" alt="Right Dots" />
+      <img src={LeftDots} className="absolute w-[70px]  md:top-[20%] top-[16%] z-10" alt="Left Dots" />
       <img src={IsolationMode} className=" w-[130px] md:w-[240px] absolute left-0 top-[2%] md:top-[5%] z-10" alt="Left Decoration" />
 
       {/* Layout */}

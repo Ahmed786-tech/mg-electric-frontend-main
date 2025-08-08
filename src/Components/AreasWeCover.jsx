@@ -30,7 +30,7 @@ export default function AreasWeCover() {
       <p className="text-[#01B8FF] text-[20px] font-normal mb-2 font-andika">
         Areas We Cover
       </p>
-      <h2 className="text-[32px] md:text-4xl font-bold font-andika mb-12 leading-tight">
+      <h2 className="text-[24px] md:text-4xl font-bold font-andika mb-12 leading-tight">
         Serving Surrey, London And Sussex
       </h2>
 
@@ -46,14 +46,14 @@ export default function AreasWeCover() {
               />
             </div>
             <div
-              className="bg-[#001A33] text-white px-6 py-4 rounded-[10px] w-[290px] h-[85px] mt-[-24px] shadow-lg relative z-10 flex items-center justify-center gap-2 font-normal text-[30px] font-andika 
+              className="bg-[#001A33] text-white px-4 md:px-6 py-3 md:py-4 rounded-[10px] w-[240px] md:w-[290px] h-[70px] md:h-[85px] mt-[-24px] shadow-lg relative z-10 flex items-center justify-center gap-2 font-normal text-[20px] md:text-[30px] font-andika 
               "
               style={{ boxShadow: "0px 7px 4px 0px #105993B2" }}
             >
               <img
                 src={LocationIcon}
                 alt="icon"
-                className="w-[44px] h-[44px]"
+                className="w-[32px] h-[32px] md:w-[44px] md:h-[44px]"
               />
               {area.name}
             </div>

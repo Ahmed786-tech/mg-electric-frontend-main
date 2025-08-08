@@ -22,14 +22,14 @@ export default function WhyChooseUs({
   Paragraph,
 }) {
   return (
-    <section className="bg-cover bg-center text-white pt-20 pb-[150px] px-6 flex flex-col justify-center content-center">
+    <section className="bg-cover bg-center text-white md:pt-20 pt-0 pb-[150px] px-6 flex flex-col justify-center content-center">
       <div className=" absolute md:mt-[300px] left-0 transform -translate-y-1/4 z-0 opacity-40">
         <div className="w-[400px] md:w-[600px] h-[800px] ">
           <img src={chooseUsBg} alt="Decorative oval" />
         </div>
       </div>
 
-      <div className=" absolute mt-[800px] w-[70px] right-4  z-10">
+      <div className=" absolute md:mt-[800px] mt-[2600px] w-[70px] right-4  z-10">
         <img
           src={RightDots}
           alt="Decorative oval"

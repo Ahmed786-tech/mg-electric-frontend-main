@@ -54,7 +54,7 @@ export function AccreditationsSection({ Background }) {
     const updateItemsToShow = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setItemsToShow(5); // Mobile: 1 item
+        setItemsToShow(4); // Mobile: 1 item
       } else if (width < 768) {
         setItemsToShow(5); // Small tablet: 2 items
       } else if (width < 1024) {
@@ -138,10 +138,10 @@ export function AccreditationsSection({ Background }) {
         <div className="relative z-10 flex flex-col items-center w-full">
           {/* Heading */}
           <div className="text-center mb-8">
-            <p className="text-[20px] text-[#01B8FF] font-normal font-andika">
+            <p className=" md:text-[20px] text-[14px] text-[#01B8FF] font-normal font-andika">
               Certified Expertise You Can Rely On
             </p>
-            <h2 className="text-[40px] font-andika font-bold text-white leading-snug max-md:text-[28px]">
+            <h2 className="md:text-[40px] text-[24px] font-andika font-bold text-white leading-snug ">
               Accreditations
             </h2>
           </div>
@@ -161,10 +161,10 @@ export function AccreditationsSection({ Background }) {
                 {[...accreditations, ...accreditations].map((accreditation, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 px-2"
+                    className="flex-shrink-0 "
                     style={{ width: `${100 / itemsToShow}%` }}
                   >
-                    <div className="flex items-center justify-center">
+                    <div className="flex  items-center justify-center">
                       <img
                         loading="lazy"
                         src={accreditation.imageUrl || "/placeholder.svg"}

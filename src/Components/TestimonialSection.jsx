@@ -43,13 +43,17 @@ const testimonials = [
 export default function Component() {
   const [itemsToShow, setItemsToShow] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const containerRef = useRef(null);
   const cardWidthRef = useRef(0);
+  
+  const maxIndex = testimonials.length - itemsToShow;
 
   useEffect(() => {
     const updateItems = () => {
       const width = window.innerWidth;
+      setIsMobile(width < 768);
       if (width < 640) setItemsToShow(1);
       else if (width < 1024) setItemsToShow(2);
       else setItemsToShow(3);
@@ -79,13 +83,30 @@ export default function Component() {
     }
   }, [currentIndex]);
 
-  const maxIndex = testimonials.length - itemsToShow;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = cardWidthRef.current;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= maxIndex) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [currentIndex, maxIndex]);
 
   const goToPrevious = () => {
+    console.log('Previous clicked, currentIndex:', currentIndex);
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const goToNext = () => {
+    console.log('Next clicked, currentIndex:', currentIndex, 'maxIndex:', maxIndex);
     setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
@@ -117,6 +138,26 @@ export default function Component() {
               gap: "14px",
               scrollSnapType: "x mandatory",
               scrollPaddingLeft: 0,
+            }}
+            onTouchStart={(e) => {
+              const touch = e.touches[0];
+              const startX = touch.clientX;
+              const startScrollLeft = containerRef.current.scrollLeft;
+              
+              const handleTouchMove = (e) => {
+                const touch = e.touches[0];
+                const x = touch.clientX;
+                const walk = (startX - x) * 2;
+                containerRef.current.scrollLeft = startScrollLeft + walk;
+              };
+              
+              const handleTouchEnd = () => {
+                document.removeEventListener('touchmove', handleTouchMove);
+                document.removeEventListener('touchend', handleTouchEnd);
+              };
+              
+              document.addEventListener('touchmove', handleTouchMove);
+              document.addEventListener('touchend', handleTouchEnd);
             }}
           >
             {testimonials.map((testimonial, index) => (

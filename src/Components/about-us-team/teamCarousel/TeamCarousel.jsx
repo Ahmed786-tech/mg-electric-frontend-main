@@ -3,6 +3,7 @@ import TeamMemberCard from "./TeamMemberCard";
 import RightDots from "@/assets/images/RightDots.png";
 import leftArrow from "@/assets/svgs/Arrow 1.svg";
 import rightArrow from "@/assets/svgs/Arrow 2.svg";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 
 import { teamData } from "./teamData";
 
@@ -66,6 +67,16 @@ function TeamCarousel() {
       <div className="absolute w-[70px] right-4 top-[370px] z-10">
         <img
           src={RightDots}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+      <div className=" absolute w-[120px] md:w-[250px] md:mt-[100px] mt-[50px] right-0 transform  -translate-y-1/2 z-10">
+        <img
+          src={IsolationMode1}
           alt="Decorative oval"
           style={{
             objectFit: "contain",

@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import contactImage from "../../src/assets/images/Contactimg.png";
 import { ConsultationCard } from "./gallery-banner/hero/ConsultationCard";
 import ReCAPTCHA from "react-google-recaptcha";
+import contactRightVector from "@/assets/images/contactUsRightVector.png";
+import { useLocation } from "react-router-dom";
 
 export default function ContactUsSection() {
   const [recaptchaVerified, setRecaptchaVerified] = useState(false);
+  const location = useLocation();
+  const showRightDots = location.pathname === "/services/emergency-lighting";
 
   const handleRecaptcha = (value) => {
     if (value) {
@@ -14,7 +18,14 @@ export default function ContactUsSection() {
   };
 
   return (
-    <section className="px-6 pb-20 text-white">
+    <section className="px-6 pb-20 text-white  relative z-10">
+       {showRightDots && (
+         <div className=" absolute md:mt-[250px] mt-[650px] top-0 right-0  z-0 ">
+           <div className="w-[200px] md:w-[500px] ">
+             <img src={contactRightVector} alt="Decorative oval" />
+           </div>
+         </div>
+       )}
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

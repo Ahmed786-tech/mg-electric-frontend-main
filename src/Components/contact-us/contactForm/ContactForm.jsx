@@ -2,6 +2,8 @@ import * as React from "react";
 import { FormInput } from "./FormInput";
 import ReCAPTCHA from "react-google-recaptcha";
 import bg from "../../../assets/images/Bg20.png";
+import bgDots from "@/assets/images/bgDots.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 
 export function ContactForm() {
   const formInputs = [
@@ -27,10 +29,26 @@ export function ContactForm() {
 
   return (
     <section
-      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 md:px-0 px-4"
-      style={{ backgroundImage: `url(${bg})` }}
+      className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 md:px-0 px-4 relative z-10"
+      
     >
-      <div className="flex flex-col justify-center items-center px-4 md:px-9 py-7 bg-white rounded-[20px] w-full max-w-[1122px] shadow-sm mx-auto mt-10">
+       <div className=" absolute md:mt-[550px] mt-[220px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[250px] md:w-[530px] ">
+          <img src={bgDots} alt="Decorative oval" />
+        </div>
+      </div>
+
+      <div className=" absolute md:w-[250px] w-[150px]   right-0 transform  md:bottom-[150px] bottom-[-10px] z-0">
+        <img
+          src={IsolationMode1}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+      <div className="flex flex-col justify-center items-center px-4 md:px-9 py-7 bg-white rounded-[20px] w-full max-w-[1122px] shadow-sm mx-auto mt-10 relative z-10">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-center w-full"

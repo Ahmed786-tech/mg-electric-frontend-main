@@ -20,7 +20,7 @@ export default function WeOffer({
 }) {
   return (
     <section className="bg-cover bg-center bg-no-repeat text-white py-12 px-4 sm:px-6 relative">
-      <div className=" absolute w-[200px] mt-[680px] right-0 transform  -translate-y-1/4 z-10">
+      <div className=" absolute w-[200px] md:mt-[680px] mt-[1900px] right-0 transform  -translate-y-1/4 z-10">
         <img
           src={IsolationMode1}
           alt="Decorative oval"

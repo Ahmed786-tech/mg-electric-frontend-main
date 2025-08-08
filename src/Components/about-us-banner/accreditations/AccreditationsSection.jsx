@@ -105,11 +105,23 @@ export function AccreditationsSection({ Background }) {
   const goToSlide = (index) => {
     setCurrentIndex(Math.min(index, maxIndex));
   };
+ 
 
   return (
     <section className="px-4 mt-8 pt-9 pb-16 relative z-10">
 
-
+{location.pathname == "/services/emergency-lighting" && (
+        <div className="absolute w-[70px] left-2 transform md:top-[210px] top-[-10px] -translate-y-1/4 z-10">
+          <img
+            src={LeftDots}
+            alt="Decorative oval"
+            style={{
+              objectFit: "contain",
+              objectPosition: "center",
+            }}
+          />
+        </div>
+      )}
       <div
         style={{ boxShadow: "0px 7px 4px 0px rgba(16, 89, 147, 0.7)" }}
         className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16 rounded-2xl shadow-sm min-h-[328px] max-w-[1300px] w-full mx-auto"

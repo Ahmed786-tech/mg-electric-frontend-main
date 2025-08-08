@@ -4,10 +4,16 @@ import { CompanyInfo } from "./components/CompanyInfo";
 import { navigationLinks, servicesLinks } from "./data/navigationData";
 import Logo from "../../assets/svgs/logo.svg";
 import RightDots from "@/assets/images/RightDots.png";
+import { useLocation } from "react-router-dom";
 
 export function Footer() {
+  const location = useLocation();
+  const showRightDots = location.pathname === "/services/emergency-lighting";
   return (
     <footer className="flex flex-col relative">
+       {showRightDots && (
+         <img src={RightDots} className="absolute w-[70px] right-4 top-[230px] z-10" alt="Right Dots" />
+       )}
       <div className="flex flex-col items-center px-20 pt-20 mt-16 pb-8 w-full border-t border-white max-md:px-5 max-md:max-w-full">
         <div className="flex flex-nowrap lg:flex-nowrap gap-5 w-full max-w-[1240px] max-md:flex-wrap max-md:max-w-full">
           <div className="w-[35%] lg:w-[35%] md:w-[50%] max-md:w-full">

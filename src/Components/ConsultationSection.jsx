@@ -26,7 +26,7 @@ export default function ConsultationSection() {
       {/* Decorations */}
       <img src={RightDots} className="absolute w-[70px] right-4 top-[370px] z-10" alt="Right Dots" />
       <img src={LeftDots} className="absolute w-[70px] left-4 top-[20%] z-10" alt="Left Dots" />
-      <img src={IsolationMode} className="hidden md:block absolute left-0 top-[5%] z-10" alt="Left Decoration" />
+      <img src={IsolationMode} className=" w-[130px] md:w-[240px] absolute left-0 top-[2%] md:top-[5%] z-10" alt="Left Decoration" />
 
       {/* Layout */}
       <div className="flex flex-col-reverse md:flex-row items-end md:items-end gap-8 md:px-0 px-4">
@@ -35,7 +35,7 @@ export default function ConsultationSection() {
           <div className="relative w-full">
             {/* Background overlay */}
             <div
-              className="absolute hidden md:block top-0 left-0 w-full h-full z-[-1]"
+              className="absolute top-0 left-0 w-full h-full z-[-1]"
               style={{
                 backgroundImage: `url(${bg1})`,
                 backgroundSize: "contain",

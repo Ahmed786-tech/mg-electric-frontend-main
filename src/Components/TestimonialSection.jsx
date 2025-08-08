@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import qoutes from "@/assets/svgs/testimonialQoutes.svg";
 import leftArrow from "@/assets/svgs/Arrow 1.svg";
 import rightArrow from "@/assets/svgs/Arrow 2.svg";
+import RightDots from "../assets/images/RightDots.png";
+
 
 const testimonials = [
   {
@@ -95,6 +97,8 @@ export default function Component() {
 
   return (
     <div className="py-16 px-4 relative mt-10">
+      <img src={RightDots} className="absolute w-[70px] right-4 md:top-[370px] top-[160px] z-10" alt="Right Dots" />
+
       <div className="max-w-7xl mx-auto relative">
         <h4 className="text-[#01B8FF] font-normal text-xl text-center pb-2">
           Testimonials

@@ -159,13 +159,13 @@ export default function ElectricalInstallation() {
         imageSrc={electricalimg}
         imageAlt="Healthcare and Commercial Electrical Services"
       />
-      <div className="hidden md:block absolute mt-[280px] left-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute md:mt-[280px] md:mt-[300px] mt-[100px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[200px] md:w-[370px] ">
           <img src={bgDots} alt="Decorative oval" />
         </div>
       </div>
-      <div className="hidden md:block absolute mt-[-90px] right-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[500px] ">
+      <div className=" absolute md:mt-[-90px] mt-[-30px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[200px] md:w-[500px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>
@@ -194,21 +194,21 @@ export default function ElectricalInstallation() {
         rightImage={rightimg1}
       />
 
-      <div className="hidden md:block absolute mt-[-100px] right-0 transform -translate-y-1/4 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute mt-[-100px] right-0 transform -translate-y-1/4 z-0 ">
+        <div className="w-[200px] md:w-[370px] ">
           <img src={rightBgDots} alt="Decorative oval" />
         </div>
       </div>
       <AccreditationsSection Background={bg} />
-      <div className="hidden md:block absolute mt-[0px] left-0 transform -translate-y-1/4 z-0 opacity-20">
-        <div className=" md:w-[600px] h-[800px] ">
+      <div className=" absolute mt-[0px] left-0 transform -translate-y-1/4 z-0 opacity-20">
+        <div className="w-[300px] md:w-[600px] h-[800px] ">
           <img src={chooseUsBg} alt="Decorative oval" />
         </div>
       </div>
       <FaqSection faqData={faqData} />
       <ContactUsSection />
-      <div className="hidden md:block absolute mt-[-50px] right-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[500px] ">
+      <div className=" absolute mt-[-50px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[200px] md:w-[500px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>

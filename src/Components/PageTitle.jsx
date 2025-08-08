@@ -10,7 +10,7 @@ import IsolationMode from "../assets/images/Isolation_Mode_Left.png";
 export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
   return (
     <section className="w-full bg-cover bg-center bg-no-repeat py-10 md:py-12 relative z-10">
-      <div className=" md:block hidden absolute w-[70px] right-4 top-[250px] z-10">
+      <div className=" absolute w-[50px] md:w-[70px] right-4 md:top-[250px] top-[280px] z-10">
         <img
           src={RightDots}
           alt="Decorative oval"
@@ -20,7 +20,7 @@ export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
           }}
         />
       </div>
-      <div className=" md:block hidden absolute w-[70px] left-4 transform mt-8 -translate-y-1/4 z-10">
+      <div className="  absolute w-[50px] md:w-[70px] left-4 transform md:mt-8 mt-[-10px] -translate-y-1/4 z-10">
         <img
           src={LeftDots}
           alt="Decorative oval"
@@ -31,7 +31,7 @@ export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
         />
       </div>
 
-      <div className="hidden md:block absolute left-0 transform mt-12 -translate-y-1/5 z-10">
+      <div className=" absolute w-[140px] md:w-[230px] left-0 transform mt-[200px] md:mt-12 -translate-y-1/5 z-10">
         <img
           src={IsolationMode}
           alt="Decorative oval"
@@ -48,7 +48,7 @@ export function PageTitle({ tag, title, subtitle, imageSrc, imageAlt }) {
         <div className="py-6 sm:py-8 md:py-11 w-full  ">
           <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-5 relative z-10">
             {/* Text Content */}
-            <div className="hidden md:block absolute w-[650px] left-8 transform  -translate-y-1/2 z-0 opacity-30">
+            <div className=" absolute w-[300px] md:w-[650px] left-8 transform  -translate-y-1/2 z-0 opacity-30">
               <img
                 src={squareBg}
                 alt="Decorative oval"

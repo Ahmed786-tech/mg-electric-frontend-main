@@ -6,6 +6,8 @@ import Icon1 from "../assets/svgs/Icon33.svg";
 import Icon2 from "../assets/svgs/Icon34.svg";
 import Icon3 from "../assets/svgs/Icon35.svg";
 import bg from "../assets/images/Bg10.png";
+import IsolationMode1 from "@/assets/images/IsolationMode1.png";
+
 
 const sectors = [
   {
@@ -32,14 +34,20 @@ export default function SectorsWeCover() {
   return (
     <section
       className="px-4 text-white mt-20"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+     
     >
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-2">
+
+<div className=" absolute w-[250px] md:mt-[450px] mt-[800px] right-0 transform  -translate-y-1/2 z-0">
+        <img
+          src={IsolationMode1}
+          alt="Decorative oval"
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-2 relative z-10">
         {/* Left Side */}
         <div className="flex flex-col space-y-8 w-full lg:w-[405px]">
           {/* Heading & Description */}

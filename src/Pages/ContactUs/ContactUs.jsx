@@ -15,8 +15,8 @@ function ContactUs() {
         imageSrc={Contactimg}
         imageAlt="Healthcare and Commercial Electrical Services"
       />
-      <div className="hidden md:block absolute mt-[370px] top-0 right-0  z-0 ">
-        <div className=" md:w-[500px] ">
+      <div className=" absolute md:mt-[370px] mt-[550px] top-0 right-0  z-0 ">
+        <div className="w-[200px] md:w-[500px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>

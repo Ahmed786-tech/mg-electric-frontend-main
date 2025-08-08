@@ -99,13 +99,13 @@ function Home() {
   return (
     <div>
       <ConsultationSection />
-      <div className="hidden md:block absolute  left-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute  left-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[200px] md:w-[370px] ">
           <img src={bgDots} alt="Decorative oval" />
         </div>
       </div>
-      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[550px] ">
+      <div className="absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" w-[200px] md:w-[550px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>
@@ -153,8 +153,8 @@ function Home() {
       </div>
       <AccreditationsSection />
       <ServicesCarousel />
-      <div className="hidden md:block absolute mt-[-100px] left-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[540px] ">
+      <div className=" absolute md:mt-[-100px] mt-[-230px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[220px] md:w-[540px] ">
           <img src={leftVector} alt="Decorative oval" />
         </div>
       </div>
@@ -169,8 +169,8 @@ function Home() {
         />
       </div>
 
-      <div className="hidden md:block absolute  right-0 transform -translate-y-1/4 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute  right-0 transform -translate-y-1/4 z-0 ">
+        <div className="w-[200px] md:w-[370px] ">
           <img src={rightBgDots} alt="Decorative oval" />
         </div>
       </div>
@@ -192,7 +192,7 @@ function Home() {
         MarginBottom={"-mb-[50px]"}
         margintop2={"mt-8"}
       />
-      <div className="hidden md:block absolute mt-20 left-0 transform -translate-y-1/4 z-0 ">
+      <div className=" absolute mt-20 left-0 transform -translate-y-1/4 z-0 ">
         <div className=" md:w-[470px] ">
           <img src={bgDots} alt="Decorative oval" />
         </div>
@@ -200,22 +200,22 @@ function Home() {
 
       <AreasWeCover />
       <Banner Background={bg} />
-      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+      <div className=" absolute mdmt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
         <div className=" md:w-[450px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>
       <SectorsWeCover />
       <OurGallery />
-      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 opacity-30 ">
-        <div className=" md:w-[450px] ">
+      <div className=" absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 opacity-30 ">
+        <div className=" w-[200px] md:w-[450px] ">
           <img src={rightSquareVector} alt="Decorative oval" />
         </div>
       </div>
       <TestimonialSection />
       <ContactForm />
-      <div className="hidden md:block absolute mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[450px] ">
+      <div className=" absolute mt-[-80px] md:mt-[-40px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className=" w-[200px] md:w-[450px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>

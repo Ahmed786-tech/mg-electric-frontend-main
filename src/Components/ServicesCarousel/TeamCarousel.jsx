@@ -38,7 +38,7 @@ function TeamCarousel() {
   return (
     <section className="w-full py-10 md:py-12">
       <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1300px] relative">
-        <div className="absolute hidden md:block md:w-[700px] opacity-30 z-10">
+        <div className="absolute w-[300px] md:w-[700px] opacity-30 z-10">
           <img
             src={bg}
             alt="Decorative oval"

@@ -20,27 +20,27 @@ function AboutUs() {
         imageSrc={HeroImage}
         imageAlt="Healthcare and Commercial Electrical Services"
       />
-      <div className="hidden md:block absolute mt-[270px] left-0 transform -translate-y-1/4 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute md:mt-[270px] mt-[300px] left-0 transform -translate-y-1/4 z-0 ">
+        <div className=" w-[250px] md:w-[370px] ">
           <img src={bgDots} alt="Decorative oval" />
         </div>
       </div>
-      <div className="hidden md:block absolute mt-[-7px] right-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[550px] ">
+      <div className=" absolute mt-[-7px] right-0 transform -translate-y-1/2 z-0 ">
+        <div className="w-[200px] md:w-[550px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>
       <CompanyOverview />
       <TeamCarousel />
       <ApproachSection />
-      <div className="hidden md:block absolute mt-10 right-0 transform -translate-y-1/4 z-0 ">
-        <div className=" md:w-[370px] ">
+      <div className=" absolute md:mt-10 mt-[170px] right-0 transform -translate-y-1/4 z-0 ">
+        <div className="w-[250px] md:w-[370px] ">
           <img src={rightBgDots} alt="Decorative oval" />
         </div>
       </div>
       <AccreditationsSection />
-      <div className="hidden md:block absolute mt-[10px] left-0 transform -translate-y-1/2 z-0 ">
-        <div className=" md:w-[400px] ">
+      <div className="absolute mt-[10px] left-0 transform -translate-y-1/2 z-0 ">
+        <div className=" w-[200px] md:w-[400px] ">
           <img src={leftVector} alt="Decorative oval" />
         </div>
       </div>

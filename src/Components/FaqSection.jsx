@@ -96,7 +96,7 @@ export default function FAQSection({ faqData }) {
           location.pathname !== "/services/emergency-lighting"
             ? "mt-[30px]"
             : "mt-[400px]"
-        } md:block hidden absolute w-[70px] right-4 top-[0px] z-10`}
+        }  absolute w-[70px] md:right-4 right-[5px] top-[0px] z-10`}
       >
         <img
           src={RightDots}
@@ -107,7 +107,7 @@ export default function FAQSection({ faqData }) {
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-[#01B8FF] font-andika text-lg mb-2">FAQs</p>

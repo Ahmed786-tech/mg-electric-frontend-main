@@ -22,6 +22,8 @@ import { AccreditationsSection } from "../../Components/about-us-banner/accredit
 import FAQSection from "../../Components/FaqSection";
 import ContactUsSection from "../../Components/ContactUsSection";
 import aboutRightVecotr from "@/assets/images/aboutRightVector.png";
+import rightBgDots from "@/assets/images/rightSideDots.png";
+
 import bgDots from "@/assets/images/bgDots.png";
 export default function ElectricalTesting() {
   const faqData = [
@@ -131,13 +133,13 @@ export default function ElectricalTesting() {
   ];
   return (
     <div className="w-full flex flex-col mx-auto gap-16 my-16 justify-center content-center relative">
-      <div className="hidden md:block absolute mt-[250px] top-0 right-0  z-0 ">
-        <div className=" md:w-[500px] ">
+      <div className=" absolute md:mt-[250px] mt-[650px] top-0 right-0  z-0 ">
+        <div className="w-[200px] md:w-[500px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
         </div>
       </div>
-      <div className="hidden md:block absolute mt-[750px] top-0 left-0  z-0 ">
-        <div className=" md:w-[400px] ">
+      <div className=" absolute mt-[750px] top-0 left-0  z-0 ">
+        <div className="w-[200px] md:w-[400px] ">
           <img src={bgDots} alt="Decorative oval" />
         </div>
       </div>
@@ -190,10 +192,15 @@ export default function ElectricalTesting() {
         rightImage={rightimg1}
       />
       <AccreditationsSection />
+      <div className=" absolute  md:bottom-[1120px] bottom-[1900px]  right-0 transform -translate-y-1/4 z-0 ">
+        <div className="w-[250px] md:w-[450px] ">
+          <img src={rightBgDots} alt="Decorative oval" />
+        </div>
+      </div>
       <div className="relative">
         <FAQSection faqData={faqData} />
-        <div className="hidden md:block absolute left-0 transform -translate-y-1/2 z-0 opacity-30">
-          <div className=" md:w-[400px] md:h-[600px] relative ml-[-140px]">
+        <div className=" absolute left-0 transform -translate-y-1/2 z-0 opacity-30">
+          <div className="w-[270px] md:w-[400px] md:h-[600px] relative ml-[-140px]">
             <img
               src={SquareVector}
               alt="Decorative oval"
@@ -206,8 +213,8 @@ export default function ElectricalTesting() {
         </div>
 
         <ContactUsSection />
-        <div className="hidden md:block absolute mt-[-50px] right-0 transform -translate-y-1/2 z-0 ">
-          <div className=" md:w-[500px] ">
+        <div className=" absolute mt-[-50px] right-0 transform -translate-y-1/2 z-0 ">
+          <div className="w-[200px] md:w-[500px] ">
             <img src={aboutRightVecotr} alt="Decorative oval" />
           </div>
         </div>

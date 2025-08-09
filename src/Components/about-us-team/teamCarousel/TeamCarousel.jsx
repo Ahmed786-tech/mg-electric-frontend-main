@@ -50,17 +50,24 @@ function TeamCarousel() {
     const container = containerRef.current;
     if (!container) return;
 
+    let scrollTimeout;
     const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = cardWidthRef.current;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < teamData.length) {
-        setCurrentIndex(newIndex);
-      }
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollLeft = container.scrollLeft;
+        const cardWidth = cardWidthRef.current;
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < teamData.length) {
+          setCurrentIndex(newIndex);
+        }
+      }, 100);
     };
 
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, [currentIndex, teamData.length]);
 
   const maxIndex = teamData.length - itemsToShow;
@@ -140,27 +147,9 @@ function TeamCarousel() {
                 gap: "16px",
                 scrollSnapType: "x mandatory",
                 scrollPaddingLeft: 0,
+                scrollBehavior: "smooth",
               }}
-              onTouchStart={(e) => {
-                const touch = e.touches[0];
-                const startX = touch.clientX;
-                const startScrollLeft = containerRef.current.scrollLeft;
-                
-                const handleTouchMove = (e) => {
-                  const touch = e.touches[0];
-                  const x = touch.clientX;
-                  const walk = (startX - x) * 2;
-                  containerRef.current.scrollLeft = startScrollLeft + walk;
-                };
-                
-                const handleTouchEnd = () => {
-                  document.removeEventListener('touchmove', handleTouchMove);
-                  document.removeEventListener('touchend', handleTouchEnd);
-                };
-                
-                document.addEventListener('touchmove', handleTouchMove);
-                document.addEventListener('touchend', handleTouchEnd);
-              }}
+
             >
               {teamData.map((member, index) => (
                 <div

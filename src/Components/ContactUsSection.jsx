@@ -26,7 +26,7 @@ export default function ContactUsSection() {
            </div>
          </div>
        )}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-[#01B8FF] text-[20px] font-normal font-andika">

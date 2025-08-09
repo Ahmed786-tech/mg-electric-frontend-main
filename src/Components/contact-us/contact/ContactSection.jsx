@@ -29,12 +29,20 @@ export function ContactSection() {
 
           {/* Right Column - Image */}
           <div className="flex flex-col w-full lg:w-1/2">
-            <img
+          <iframe  src="https://www.google.com/maps?q=389a+London+Rd,+St.+Leonards-on-Sea+TN37+6PA,+UK&z=15&output=embed"
+          width="100%"
+          height="550"
+          style={{ border: 0, borderRadius: 20 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Custom Location Map"></iframe>
+            {/* <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/51b5a421b8ff4b8e94ef9b0be6355dd5/eb7e2356bc3f773e8275227b82d2fb5ff3f7212b6109fd7218292a850ea287d6?apiKey=51b5a421b8ff4b8e94ef9b0be6355dd5&"
               alt="Contact section illustration"
               className="object-contain w-full h-auto max-h-[670px] rounded-[20px]"
-            />
+            /> */}
           </div>
         </div>
       </div>

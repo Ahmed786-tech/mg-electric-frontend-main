@@ -36,7 +36,8 @@ const Header = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target)) {
+      // Only apply click-outside detection on desktop (screen width > 768px)
+      if (window.innerWidth > 768 && servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false);
       }
     };
@@ -119,6 +120,7 @@ const Header = () => {
           
           .nav-link:hover {
             color: #01B8FF;
+            
           }
           
           .dropdown {
@@ -250,8 +252,6 @@ const Header = () => {
             align-items: center;
             width: 100%;
           }
-
-         
           
           .drawer .arrow {
             margin-left: 8px;

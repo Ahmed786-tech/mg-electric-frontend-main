@@ -12,10 +12,12 @@ import ElectricalInstallation from './Pages/ElectricalInstallation/ElectricalIns
 import EmergencyLighting from './Pages/EmergencyLighting/EmergencyLighting';
 import ServicesOverview from './Pages/ServicesOverview/ServicesOverview'
 import Layout from './Components/Layout/Layout';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
     <div>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

@@ -19,7 +19,7 @@ export default function AboutUsSection({
   Paragraph,
 }) {
   return (
-    <section className="bg-cover bg-center text-white py-8 px-6">
+    <section className="bg-cover bg-center text-white py-8 px-6 relative z-10">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
         {/* Left Content */}
         <div className="flex flex-col w-full lg:w-1/2">

@@ -141,7 +141,7 @@ function Home() {
         />
       </div>
 
-      <div className=" absolute w-[250px] mt-[-50px] right-0 transform  -translate-y-1/2 z-10">
+      <div className=" absolute w-[250px] mt-[-50px] right-0 transform  -translate-y-1/2 z-0">
         <img
           src={IsolationMode1}
           alt="Decorative oval"

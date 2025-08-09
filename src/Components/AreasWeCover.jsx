@@ -37,7 +37,7 @@ export default function AreasWeCover() {
       {/* Cards */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-8">
         {areas.map((area, index) => (
-          <div key={index} className="group flex flex-col items-center">
+          <div key={index} className="group flex flex-col items-center relative">
             <div className="rounded-[20px] overflow-hidden shadow-lg">
               <img
                 src={area.image}
@@ -46,7 +46,7 @@ export default function AreasWeCover() {
               />
             </div>
             <div
-              className="bg-[#001A33] text-white px-4 md:px-6 py-3 md:py-4 rounded-[10px] w-[240px] md:w-[290px] h-[70px] md:h-[85px] mt-[-24px] shadow-lg relative z-10 flex items-center justify-center gap-2 font-normal text-[20px] md:text-[30px] font-andika 
+              className="bg-[#001A33] text-white px-4 md:px-6 py-3 md:py-4 rounded-[10px] w-[240px] md:w-[290px] h-[70px] md:h-[85px] shadow-lg absolute bottom-[-32px] left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center gap-2 font-normal text-[20px] md:text-[30px] font-andika 
               "
               style={{ boxShadow: "0px 7px 4px 0px #105993B2" }}
             >

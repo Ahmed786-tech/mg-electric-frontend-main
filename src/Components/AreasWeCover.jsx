@@ -37,7 +37,7 @@ export default function AreasWeCover() {
       {/* Cards */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-8">
         {areas.map((area, index) => (
-          <div key={index} className="group flex flex-col items-center relative">
+          <div key={index} className="group flex flex-col items-center relative md:mt-0 mt-8">
             <div className="rounded-[20px] overflow-hidden shadow-lg">
               <img
                 src={area.image}

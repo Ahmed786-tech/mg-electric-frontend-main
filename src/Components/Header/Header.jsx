@@ -266,7 +266,7 @@ const Header = () => {
             }
             
             .logo {
-              height: 2rem;
+              height: 3rem;
             }
             
             h1 {

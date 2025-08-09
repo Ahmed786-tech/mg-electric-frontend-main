@@ -21,11 +21,11 @@ export function PhoneContact() {
           free consultation
         </div>
         <a
-          href="tel:07856750427"
+          href="tel:07711316442"
           className="text-[18px] md:text-[20px] font-semibold text-[#01B8FF] mt-1"
           aria-label="Call for free consultation"
         >
-          07856750427
+          07711 316442
         </a>
       </div>
     </div>

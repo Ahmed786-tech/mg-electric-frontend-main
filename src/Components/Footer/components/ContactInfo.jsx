@@ -30,11 +30,11 @@ export function ContactInfo() {
             alt="Phone icon"
           />
           <a
-            href="tel:01737858357"
+            href="tel:07711316442"
             className="self-stretch my-auto hover:text-gray-300 focus:text-gray-300 transition-colors"
             tabIndex="0"
           >
-            01737 858 357
+            07711 316442
           </a>
         </div>
         <div className="flex gap-2.5 items-center self-stretch mt-7 w-full leading-7">

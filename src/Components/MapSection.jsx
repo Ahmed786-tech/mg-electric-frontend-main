@@ -14,11 +14,14 @@ export default function MapSection() {
       }}
     >
       <div className="rounded-[20px] overflow-hidden shadow-lg w-full max-w-[1260px] mb-20">
-        <img
-          src={MapImage}
-          alt="Map Section"
-          className="w-full h-auto lg:w-[1260px] lg:h-[670px] object-cover rounded-[20px]"
-        />
+      <iframe  src="https://www.google.com/maps?q=389a+London+Rd,+St.+Leonards-on-Sea+TN37+6PA,+UK&z=15&output=embed"
+          width="100%"
+          height="550"
+          style={{ border: 0, borderRadius: 20 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Custom Location Map"></iframe>
       </div>
     </section>
   );

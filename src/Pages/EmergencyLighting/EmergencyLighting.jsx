@@ -132,7 +132,7 @@ export default function ElectricalTesting() {
     },
   ];
   return (
-    <div className="w-full flex flex-col mx-auto gap-16 my-16 justify-center content-center relative">
+    <div className="w-full flex flex-col mx-auto gap-16 md:my-16 my-4 justify-center content-center relative">
       <div className=" absolute md:mt-[250px] mt-[650px] top-0 right-0  z-0 ">
         <div className="w-[200px] md:w-[500px] ">
           <img src={aboutRightVecotr} alt="Decorative oval" />
@@ -146,7 +146,7 @@ export default function ElectricalTesting() {
       <PageTitle
         tag="Our Services"
         title={
-          <span className="leading-[50px]">
+          <span className="leading-[50px] md:text-3xl text-2xl">
             Powering Through Outages: Reliable Emergency Lighting & Power
             Solutions
           </span>
@@ -160,7 +160,7 @@ export default function ElectricalTesting() {
         titleTag="What We Offer"
         heading={
           <>
-            <span className="text-[#01B8FF] leading-[45px]">
+            <span className="text-[#01B8FF] leading-[45px] md:text-3xl text-2xl">
               About Powering Through Outages:
             </span>
             <br />
@@ -176,8 +176,14 @@ export default function ElectricalTesting() {
         leftImage={leftimg}
         rightImage={rightimg}
         services={servicesList}
-        LeftimgHeight="707px"
-        RightimgHeight="533px"
+        LeftimgHeight={{
+          mobile: "500px",
+          desktop: "707px"
+        }}
+        RightimgHeight={{
+          mobile: "300px",
+          desktop: "533px"
+        }}
         LeftimgWidth="200px"
         RightimgWidth="271px"
         MarginBottom={"mb-[100px]"}

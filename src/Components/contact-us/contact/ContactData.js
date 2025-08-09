@@ -4,7 +4,7 @@ export const contactItems = [
     title: "Call Us",
     description:
       "If you have any questions or need help just send us a message and we'll be glad to help",
-    primaryInfo: "01737 858 357",
+    primaryInfo: "07711 316442",
     secondaryInfo: {
       prefix: "Alternatively Try",
       value: "07711 316 442",

@@ -41,6 +41,10 @@ const Header = () => {
     navigate("/");
   };
 
+  const toggleServicesDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
       <style>
@@ -346,29 +350,19 @@ const Header = () => {
                 </li>
                 <li
                   className="nav-item"
-                  onMouseEnter={() => {
-                    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-                    setIsDropdownOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    closeTimeoutRef.current = setTimeout(() => {
-                      setIsDropdownOpen(false);
-                    }, 200); // Adjust delay here if needed
-                  }}
+                  onClick={toggleServicesDropdown}
+                  style={{ cursor: 'pointer' }}
                 >
-                  <Link to="/services" className="nav-link" onClick={() => setIsDropdownOpen(false)}>
-                    Services
-                  </Link>
+                  <div className="nav-link flex items-center gap-1">
+                    <Link to="/services" onClick={(e) => e.stopPropagation()}>
+                      Services
+                    </Link>
+                    <span className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}>
+                      ▼
+                    </span>
+                  </div>
                   {isDropdownOpen && (
-                    <ul className="dropdown z-50"
-                      onMouseEnter={() => {
-                        if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
-                      }}
-                      onMouseLeave={() => {
-                        closeTimeoutRef.current = setTimeout(() => {
-                          setIsDropdownOpen(false);
-                        }, 200);
-                      }}>
+                    <ul className="dropdown z-50">
                       <li>
                         <Link
                           to="/services/electrical-installations"
@@ -448,14 +442,17 @@ const Header = () => {
               </li>
               <li
                 className="nav-item"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
+                onClick={toggleServicesDropdown}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="nav-link-with-arrow">
                   <Link
                     to="/services"
                     className="nav-link"
-                    onClick={toggleDrawer}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleDrawer();
+                    }}
                   >
                     Services
                   </Link>

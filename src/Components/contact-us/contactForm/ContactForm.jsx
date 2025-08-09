@@ -55,7 +55,7 @@ export function ContactForm() {
         >
           {/* Header */}
           <div className="text-center">
-            <p className="text-[20px] font-normal text-[#01B8FF] mt-[100px] font-andika">
+            <p className="text-[20px] font-normal text-[#01B8FF] md:mt-[100px] mt-[30px] font-andika">
               Contact
             </p>
             <h2 className="text-[32px] md:text-[40px] font-bold leading-snug text-[#001A33] font-andika">
@@ -64,7 +64,7 @@ export function ContactForm() {
           </div>
 
           {/* Form Fields */}
-          <div className="flex flex-col gap-5 mt-6 w-full">
+          <div className="flex flex-col md:gap-5 gap-0 mt-6 w-full">
             {formInputs.map((input, index) => (
               <FormInput key={index} {...input} />
             ))}

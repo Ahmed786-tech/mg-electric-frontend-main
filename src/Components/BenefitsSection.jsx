@@ -16,9 +16,9 @@ export default function BenefitsSection({
   const location = useLocation();
 
   return (
-    <section className="bg-cover bg-center bg-no-repeat text-white py-8 px-4 sm:px-6 md:px-10 relative">
+    <section className="bg-cover bg-center bg-no-repeat text-white md:py-8 px-4 sm:px-6 md:px-10 relative">
       {location.pathname !== "/services/emergency-lighting" && (
-        <div className="absolute w-[70px] left-2 transform bottom-[130px] -translate-y-1/4 z-10">
+        <div className="absolute w-[70px] left-2 transform md:bottom-[130px] bottom-[-30px] -translate-y-1/4 z-10">
           <img
             src={LeftDots}
             alt="Decorative oval"
@@ -36,7 +36,7 @@ export default function BenefitsSection({
             <h2 className="text-[20px] text-[#01B8FF] font-normal font-andika">
               {heading}
             </h2>
-            <h1 className="text-[32px] md:text-[40px] font-bold font-andika">
+            <h1 className="text-[24px] md:text-[40px] font-bold font-andika">
               {subheading}
             </h1>
             <p className="text-lg font-lato font-normal pt-3"> {subHeading1}</p>

@@ -102,22 +102,32 @@ export default function Component() {
 
   const goToPrevious = () => {
     console.log('Previous clicked, currentIndex:', currentIndex);
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => {
+      if (prev === 0) {
+        return testimonials.length - 1;
+      }
+      return prev - 1;
+    });
   };
 
   const goToNext = () => {
     console.log('Next clicked, currentIndex:', currentIndex, 'maxIndex:', maxIndex);
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+    setCurrentIndex((prev) => {
+      if (prev === testimonials.length - 1) {
+        return 0;
+      }
+      return prev + 1;
+    });
   };
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
-  const dotsCount = testimonials.length - itemsToShow + 1;
+  const dotsCount = testimonials.length;
 
   return (
-    <div className="py-16 px-4 relative mt-10">
+    <div className="md:py-16 pb-12 md:pb-0 px-4 relative md:mt-10">
       <img src={RightDots} className="absolute w-[70px] right-4 md:top-[370px] top-[160px] z-10" alt="Right Dots" />
 
       <div className="max-w-7xl mx-auto relative">
@@ -195,7 +205,7 @@ export default function Component() {
           </div>
 
           {/* Prev/Next buttons */}
-          <button
+          {/* <button
             onClick={goToPrevious}
             disabled={currentIndex === 0}
             className={`p-2 text-cyan-400 hover:text-cyan-300 hover:bg-slate-800 rounded-md transition-colors absolute top-1/2 -left-6 md:-left-10 -translate-y-1/2 z-10 ${
@@ -215,11 +225,11 @@ export default function Component() {
             aria-label="Next testimonials"
           >
             <img src={rightArrow} alt="right" />
-          </button>
+          </button> */}
         </div>
 
         {/* Dots */}
-        <div className="flex items-center justify-center mt-8 gap-4">
+        <div className="flex items-center justify-center  gap-4">
           {Array.from({ length: dotsCount }).map((_, index) => (
             <button
               key={index}

@@ -46,6 +46,23 @@ function TeamCarousel() {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = cardWidthRef.current;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < teamData.length) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [currentIndex, teamData.length]);
+
   const maxIndex = teamData.length - itemsToShow;
 
   const goToPrevious = () => {
@@ -60,7 +77,7 @@ function TeamCarousel() {
     setCurrentIndex(index);
   };
 
-  const dotsCount = teamData.length - itemsToShow + 1;
+  const dotsCount = teamData.length;
 
   return (
     <section className="w-full bg-cover bg-center bg-no-repeat">
@@ -84,7 +101,7 @@ function TeamCarousel() {
           }}
         />
       </div>
-      <div className="flex flex-col items-center py-8 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1350px]">
+      <div className="flex flex-col items-center md:py-8 py-0 overflow-hidden px-4 sm:px-6 md:px-8 mx-auto max-w-[1350px]">
         <p className="font-normal text-[20px] text-[#01B8FF] mb-3 font-andika">
           Team
         </p>
@@ -115,7 +132,7 @@ function TeamCarousel() {
           </div>
 
           {/* Carousel */}
-          <div className="overflow-hidden relative h-[400px] w-full">
+          <div className="overflow-hidden relative md:h-[400px] h-[320px] w-full">
             <div
               ref={containerRef}
               className="flex overflow-x-auto no-scrollbar scroll-smooth h-full"
@@ -123,6 +140,26 @@ function TeamCarousel() {
                 gap: "16px",
                 scrollSnapType: "x mandatory",
                 scrollPaddingLeft: 0,
+              }}
+              onTouchStart={(e) => {
+                const touch = e.touches[0];
+                const startX = touch.clientX;
+                const startScrollLeft = containerRef.current.scrollLeft;
+                
+                const handleTouchMove = (e) => {
+                  const touch = e.touches[0];
+                  const x = touch.clientX;
+                  const walk = (startX - x) * 2;
+                  containerRef.current.scrollLeft = startScrollLeft + walk;
+                };
+                
+                const handleTouchEnd = () => {
+                  document.removeEventListener('touchmove', handleTouchMove);
+                  document.removeEventListener('touchend', handleTouchEnd);
+                };
+                
+                document.addEventListener('touchmove', handleTouchMove);
+                document.addEventListener('touchend', handleTouchEnd);
               }}
             >
               {teamData.map((member, index) => (

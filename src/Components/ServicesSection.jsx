@@ -12,7 +12,7 @@ import bg from "@/assets/images/Bg21.png";
 export default function ServicesSection() {
   return (
     <section
-      className="bg-cover bg-center bg-no-repeat text-white px-4 md:px-6"
+      className="bg-cover bg-center bg-no-repeat text-white px-4 md:px-6 pb-14 md:pb-0"
       // style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="max-w-7xl mx-auto text-center">

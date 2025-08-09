@@ -30,7 +30,7 @@ const gridImages = [img1, img2];
 
 export function ApproachSection() {
   return (
-    <section className="w-full bg-cover bg-center bg-no-repeat py-6 ">
+    <section className="w-full bg-cover bg-center bg-no-repeat md:py-6 py-0 ">
       <div className=" absolute w-[70px] right-4 mt-6 z-10">
         <img
           src={RightDots}

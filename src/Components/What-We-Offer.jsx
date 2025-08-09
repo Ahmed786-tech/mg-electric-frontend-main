@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import IsolationMode1 from "@/assets/images/IsolationMode1.png";
 
 export default function WeOffer({
@@ -18,6 +18,17 @@ export default function WeOffer({
   margintop,
   margintop2,
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   return (
     <section className="bg-cover bg-center bg-no-repeat text-white py-12 px-4 sm:px-6 relative">
       <div className=" absolute w-[200px] md:mt-[680px] mt-[1900px] right-0 transform  -translate-y-1/4 z-10">
@@ -30,23 +41,33 @@ export default function WeOffer({
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row md:gap-12 items-start">
         {/* Left Images */}
         <div
-          className={`flex flex-col sm:flex-row gap-4 w-full lg:w-[40%] md:mt-[130px]`}
+          className={`flex flex-col sm:flex-row gap-4 w-full lg:w-[40%] mt-4 md:mt-[130px]`}
         >
           {/* Left Image */}
           <img
             src={leftImage}
             alt="Electrical Panel"
-            className={`rounded-[10px] w-full sm:w-[290px] h-${LeftimgHeight} sm:h-${LeftimgHeight} object-cover ${MarginTop}`}
+            className={`rounded-[10px] w-full sm:w-[290px] object-cover ${MarginTop}`}
+            style={{
+              height: typeof LeftimgHeight === 'object' 
+                ? (isMobile ? LeftimgHeight.mobile : LeftimgHeight.desktop)
+                : (isMobile ? '500px' : LeftimgHeight)
+            }}
           />
 
           {/* Right Image */}
           <img
             src={rightImage}
             alt="Electrical Wiring"
-            className={`rounded-[10px] w-full sm:w-${RightimgWidth} h-${RightimgHeight} sm:h-${RightimgHeight} object-cover ${margintop2} ${MarginBottom}`}
+            className={`rounded-[10px] w-full sm:w-${RightimgWidth} object-cover ${margintop2} ${MarginBottom}`}
+            style={{
+              height: typeof RightimgHeight === 'object' 
+                ? (isMobile ? RightimgHeight.mobile : RightimgHeight.desktop)
+                : (isMobile ? '300px' : RightimgHeight)
+            }}
           />
         </div>
 

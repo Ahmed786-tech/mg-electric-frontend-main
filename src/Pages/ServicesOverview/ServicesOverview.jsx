@@ -16,7 +16,7 @@ export default function ServicesOverview() {
       <PageTitle
         tag="Our Services"
         title={
-          <span className="leading-[50px]">
+          <span className="leading-[50px] md:text-3xl text-2xl">
             Comprehensive Electrical Solutions for Healthcare and Commercial
             Facilities
           </span>

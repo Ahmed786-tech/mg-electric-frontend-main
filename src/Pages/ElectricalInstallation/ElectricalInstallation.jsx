@@ -41,21 +41,21 @@ export default function ElectricalInstallation() {
       id: 2,
       question: "How Long Does An Installation Typically Take?",
       answer:
-        "Installation times vary depending on the complexity and scope of the project. We provide detailed timelines during our initial consultation.",
-      isOpen: false,
+        " The timeframe depends on the complexity of the project. We provide a detailed schedule during the consultation phase.",
+           isOpen: false,
     },
     {
       id: 3,
       question: "Can You Upgrade Outdated Electrical Systems?",
       answer:
-        "We specialize in upgrading outdated electrical systems to meet current safety standards and improve efficiency.",
+        " Absolutely. We specialise in upgrading old electrical systems to bring them in line with modern standards, improving efficiency and safety.",
       isOpen: false,
     },
     {
       id: 4,
       question: "Are Your Electricians Qualified And Experienced?",
       answer:
-        "All our electricians are fully qualified, certified, and have extensive experience in commercial and healthcare electrical installations.",
+        "Our team of experienced electricians is fully qualified and certified to deliver high-quality workmanship.",
       isOpen: false,
     },
     {
@@ -63,14 +63,14 @@ export default function ElectricalInstallation() {
       question:
         "What Is Your Approach To Minimising Disruption To My Business?",
       answer:
-        "We work around your schedule, often during off-hours, and use efficient installation methods to minimize downtime and disruption.",
+        "We work efficiently and plan our work carefully to ensure minimal impact on your operations.",
       isOpen: false,
     },
     {
       id: 6,
       question: "How Can You Help Me Reduce Energy Costs?",
       answer:
-        "We recommend energy-efficient solutions, LED lighting upgrades, and smart systems that can significantly reduce your energy consumption and costs.",
+        "We can help you reduce energy costs by installing energy-efficient lighting, upgrading your electrical systems, and providing expert advice on energy conservation.",
       isOpen: false,
     },
   ];

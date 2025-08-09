@@ -37,19 +37,19 @@ export default function ElectricalTesting() {
     {
       id: 2,
       question: "How often should emergency lighting be tested?",
-      answer: "IHow often should emergency lighting be tested?",
+      answer: "Emergency lighting systems should be tested regularly, typically monthly for functionality and annually for full duration testing.",
       isOpen: false,
     },
     {
       id: 3,
       question: "What is a UPS system?",
-      answer: "What is a UPS system?",
+      answer: "A UPS system provides backup power to critical equipment during brief power outages, allowing for a seamless transition to generator power or the restoration of the main power supply.",
       isOpen: false,
     },
     {
       id: 4,
       question: "How do I choose the right backup generator for my facility?",
-      answer: "How do I choose the right backup generator for my facility?",
+      answer: "The size and type of backup generator required will depend on your facility's specific needs. Our experts can assess your requirements and recommend the most suitable solution",
       isOpen: false,
     },
     {
@@ -57,7 +57,7 @@ export default function ElectricalTesting() {
       question:
         "What are the benefits of regular maintenance for emergency lighting and power systems?",
       answer:
-        "What are the benefits of regular maintenance for emergency lighting and power systems?",
+        "Regular maintenance can extend the lifespan of your equipment, improve its performance, and reduce the risk of unexpected failures.",
       isOpen: false,
     },
     {
@@ -65,7 +65,7 @@ export default function ElectricalTesting() {
       question:
         "What is the cost of installing emergency lighting and power systems?",
       answer:
-        "What is the cost of installing emergency lighting and power systems?",
+        "The cost of installation will vary depending on the size and complexity of your facility. Our team can provide a detailed quote after assessing your specific needs.",
       isOpen: false,
     },
   ];

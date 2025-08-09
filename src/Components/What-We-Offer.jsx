@@ -17,6 +17,7 @@ export default function WeOffer({
   Paragraph,
   margintop,
   margintop2,
+  rightSectionMargin
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -30,8 +31,8 @@ export default function WeOffer({
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
   return (
-    <section className="bg-cover bg-center bg-no-repeat text-white py-12 px-4 sm:px-6 relative">
-      <div className=" absolute w-[200px] md:mt-[680px] mt-[1900px] right-0 transform  -translate-y-1/4 z-10">
+    <section className="bg-cover bg-center bg-no-repeat text-white py-12 px-4  sm:px-6 relative">
+      <div className=" absolute w-[200px] md:mt-[680px] mt-[1900px] right-0 transform  -translate-y-1/4 z-0">
         <img
           src={IsolationMode1}
           alt="Decorative oval"
@@ -72,7 +73,7 @@ export default function WeOffer({
         </div>
 
         {/* Right Content */}
-        <div className="flex flex-col w-full lg:w-[50%] lg:ml-[70px] mt-8 lg:mt-0">
+        <div className={`flex flex-col w-full lg:w-[50%] lg:ml-[70px] ${rightSectionMargin}`}>
           <p className="text-[#01B8FF] font-normal text-[18px] sm:text-[20px] mb-2 font-andika">
             {titleTag}
           </p>

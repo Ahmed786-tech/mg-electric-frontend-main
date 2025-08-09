@@ -12,7 +12,7 @@ import bg from "@/assets/images/Bg21.png";
 export default function ServicesSection() {
   return (
     <section
-      className="bg-cover bg-center bg-no-repeat text-white px-4 md:px-6 pb-14 md:pb-0"
+      className="bg-cover bg-center bg-no-repeat text-white px-4 md:px-6 pb-14 md:pb-0 relative z-10"
       // style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="max-w-7xl mx-auto text-center">
@@ -24,8 +24,8 @@ export default function ServicesSection() {
         </h2>
 
         {/* Top 3 Cards */}
-        <div className="flex flex-wrap justify-center gap-6 mb-6">
-          <div className=" absolute w-[250px] mt-[550px] right-0 transform  -translate-y-1/4 z-10">
+        <div className="flex flex-wrap justify-center gap-6 mb-6 relative z-10">
+          <div className=" absolute w-[250px] mt-[550px] right-0 transform  -translate-y-1/4 z-0">
             <img
               src={IsolationMode1}
               alt="Decorative oval"
@@ -49,7 +49,7 @@ export default function ServicesSection() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="border border-[#BDB7B7] rounded-[20px] p-3.5 w-full sm:w-[360px] md:w-[397px] min-h-[494px]"
+              className="border border-[#BDB7B7] rounded-[20px] p-3.5 w-full sm:w-[360px] md:w-[397px] min-h-[494px] relative z-10"
             >
               <div className="bg-white text-[#02172F] rounded-[16px] h-full flex flex-col justify-between p-6 shadow-md">
                 <div className="flex flex-col items-center">

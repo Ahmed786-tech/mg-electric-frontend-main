@@ -128,7 +128,7 @@ export default function Component() {
 
   return (
     <div className="md:py-16 pb-12 md:pb-0 px-4 relative md:mt-10">
-      <img src={RightDots} className="absolute w-[70px] right-4 md:top-[370px] top-[160px] z-10" alt="Right Dots" />
+      <img src={RightDots} className="absolute w-[50px] md:w-[70px] right-4 md:top-[370px] top-[110px] z-0" alt="Right Dots" />
 
       <div className="max-w-7xl mx-auto relative">
         <h4 className="text-[#01B8FF] font-normal text-xl text-center pb-2">

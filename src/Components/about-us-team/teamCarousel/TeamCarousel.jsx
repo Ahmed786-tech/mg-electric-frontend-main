@@ -88,7 +88,7 @@ function TeamCarousel() {
 
   return (
     <section className="w-full bg-cover bg-center bg-no-repeat">
-      <div className="absolute w-[70px] right-4 top-[370px] z-10">
+      <div className="absolute w-[50px] md:w-[70px] right-4 top-[390px] z-0">
         <img
           src={RightDots}
           alt="Decorative oval"
@@ -98,7 +98,7 @@ function TeamCarousel() {
           }}
         />
       </div>
-      <div className=" absolute w-[120px] md:w-[250px] md:mt-[100px] mt-[50px] right-0 transform  -translate-y-1/2 z-10">
+      <div className=" absolute w-[120px] md:w-[250px] md:mt-[100px] mt-[50px] right-0 transform  -translate-y-1/2 z-0">
         <img
           src={IsolationMode1}
           alt="Decorative oval"

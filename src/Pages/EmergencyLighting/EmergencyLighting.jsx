@@ -66,6 +66,7 @@ export default function ElectricalTesting() {
         "What is the cost of installing emergency lighting and power systems?",
       answer:
         "The cost of installation will vary depending on the size and complexity of your facility. Our team can provide a detailed quote after assessing your specific needs.",
+      
       isOpen: false,
     },
   ];
@@ -188,6 +189,7 @@ export default function ElectricalTesting() {
         RightimgWidth="271px"
         MarginBottom={"mb-[100px]"}
         margintop2={"mt-[90px]"}
+        rightSectionMargin={"md:mt-0 mt-0"}
       />
       <BenefitsSection
         heading="Benefits"

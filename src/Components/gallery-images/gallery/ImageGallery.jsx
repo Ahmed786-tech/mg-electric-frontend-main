@@ -86,7 +86,7 @@ export function ImageGallery() {
           <img src={leftVector} alt="Decorative oval" />
         </div>
       </div>
-      <div className=" absolute w-[150px] md:w-[250px] md:top-[600px] top-[400px] right-0 transform  -translate-y-1/2 z-10">
+      <div className=" absolute w-[150px] md:w-[250px] md:top-[600px] top-[400px] right-0 transform  -translate-y-1/2 z-0">
         <img
           src={IsolationMode1}
           alt="Decorative oval"

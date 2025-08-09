@@ -184,6 +184,7 @@ export default function ElectricalInstallation() {
         MarginBottom={"-mb-[50px]"}
         margintop={"mt-[130px]"}
         margintop2={"mt-8"}
+        rightSectionMargin={"md:mt-8 mt-28"}
       />
 
       <BenefitsSection

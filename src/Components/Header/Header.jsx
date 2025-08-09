@@ -9,6 +9,7 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const closeTimeoutRef = useRef(null);
+  const servicesDropdownRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +33,22 @@ const Header = () => {
       document.body.style.paddingTop = '0';
     };
   }, [isSticky]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -102,7 +119,6 @@ const Header = () => {
           
           .nav-link:hover {
             color: #01B8FF;
-            text-decoration: underline;
           }
           
           .dropdown {
@@ -234,6 +250,8 @@ const Header = () => {
             align-items: center;
             width: 100%;
           }
+
+         
           
           .drawer .arrow {
             margin-left: 8px;
@@ -349,6 +367,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li
+                  ref={servicesDropdownRef}
                   className="nav-item"
                   onClick={toggleServicesDropdown}
                   style={{ cursor: 'pointer' }}

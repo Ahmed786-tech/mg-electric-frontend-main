@@ -49,7 +49,7 @@ export default function SectorsWeCover() {
       </div>
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-2 relative z-10">
         {/* Left Side */}
-        <div className="flex flex-col space-y-8 w-full lg:w-[405px]">
+        <div className="flex flex-col space-y-8 w-full lg:w-[405px] relative z-10">
           {/* Heading & Description */}
           <div>
             <p className="text-[#01B8FF] text-[20px] font-normal font-andika">
@@ -75,7 +75,7 @@ export default function SectorsWeCover() {
         </div>
 
         {/* Right Side Grid */}
-        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4 relative z-10">
           {/* Column 1 */}
           <div className="flex flex-col gap-5">
             <img

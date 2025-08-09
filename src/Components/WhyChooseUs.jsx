@@ -24,7 +24,7 @@ export default function WhyChooseUs({
   return (
     <section className="bg-cover bg-center text-white md:pt-20 pt-0 pb-[150px] px-6 flex flex-col justify-center content-center">
       <div className=" absolute md:mt-[300px] left-0 transform -translate-y-1/4 z-0 opacity-40">
-        <div className="w-[400px] md:w-[600px] h-[800px] ">
+        <div className="w-[300px] md:w-[600px] h-[800px] ">
           <img src={chooseUsBg} alt="Decorative oval" />
         </div>
       </div>
